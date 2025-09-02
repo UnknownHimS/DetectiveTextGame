@@ -413,8 +413,18 @@
       },
       accuseResult: {
         background: '#111',
-        dialogues: [],
-        choices: []
+        dialogues: [
+                    "Partner: Let's drink tonight!",
+                    "You: Nahh I pass, I'd rather sleep",
+                    "Partner: At least it—",
+                    "Partner: Hey! Wait for me",
+                    "You: Faster or the restaurant will be closed"
+
+        
+        ],
+        choices: [
+              { text:"nextCase", nextScene: "comedyIntro"}
+        ]
       },
        comedyIntro: {
         background: '#222',
@@ -594,151 +604,1124 @@
           { text: "Return to analysis", nextScene: "analyzeClues" }
         ]
       },
-    
-      informantScene: {
-        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
-        dialogues: [
-          "Your informant greets you in a dimly lit bar.",
-          "Informant: I heard whispers about a gang using strange symbols to mark territory.",
-          "Partner: Could that be related to the strange symbol note?"
-        ],
-        clue: "Gang Symbol Connection",
-        choices: [
-          { text: "Ask about gang members", nextScene: "gangInfo" },
-          { text: "Return to analysis", nextScene: "analyzeClues" }
-        ]
-      },
-    
-      gangInfo: {
-        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
-        dialogues: [
-          "Informant: The gang’s leader is called 'The Hooded One'.",
-          "Partner: Fits the hoodie clue. This is getting interesting."
-        ],
-        choices: [
-          { text: "Look for 'The Hooded One'", nextScene: "hoodedOneScene" },
-          { text: "Return to analysis", nextScene: "analyzeClues" }
-        ]
-      },
-    
-      hoodedOneScene: {
-        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
-        dialogues: [
-          "You track down a suspicious figure matching the description near the docks.",
-          "Partner: There he is... The Hooded One."
-        ],
-        choices: [
-          { text: "Confront him", nextScene: "confrontation" },
-          { text: "Observe quietly", nextScene: "observe" }
-        ]
-      },
-    
-      confrontation: {
-        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
-        dialogues: [
-          "You confront the hooded figure. He pulls down his hood revealing... it’s the store owner!",
-          "Partner: What?! That can’t be right."
-        ],
-        choices: [
-          { text: "Accuse store owner", nextScene: "accuseStoreOwner" },
-          { text: "Keep investigating", nextScene: "analyzeClues" }
-        ]
-      },
-    
-      accuseStoreOwner: {
-        background: '#800000',
-        dialogues: [
-          "You accuse the store owner of being involved in the crime.",
-          "Store Owner: I swear I didn’t do anything! It’s not what it looks like!",
-          "Partner: We need more proof."
-        ],
-        choices: [
-          { text: "Return to analysis", nextScene: "analyzeClues" }
-        ]
-      },
-    
-      observe: {
-        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
-        dialogues: [
-          "You observe quietly and notice the hooded figure slipping something into a locker.",
-          "Partner: Let’s check that locker."
-        ],
-        choices: [
-          { text: "Open locker", nextScene: "lockerScene" },
-          { text: "Follow figure further", nextScene: "followFigure" }
-        ]
-      },
-    
-      lockerScene: {
-        background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
-        dialogues: [
-          "Inside the locker, you find stolen goods and evidence linking the store owner to the crime.",
-          "Partner: This is the proof we need!"
-        ],
-        clue: "Locker Evidence",
-        choices: [
-          { text: "Arrest store owner", nextScene: "caseSolved" },
-          { text: "Keep investigating", nextScene: "analyzeClues" }
-        ]
-      },
-    
-      followFigure: {
-        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
-        dialogues: [
-          "You follow the hooded figure to an abandoned warehouse.",
-          "Partner: Looks like the gang's hideout."
-        ],
-        choices: [
-          { text: "Enter warehouse", nextScene: "warehouseScene" },
-          { text: "Call for backup", nextScene: "callBackup" }
-        ]
-      },
-    
-      warehouseScene: {
-        background: 'url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=870&q=80")',
-        dialogues: [
-          "Inside the warehouse, you find gang members counting stolen goods.",
-          "Partner: We caught them red-handed!"
-        ],
-        choices: [
-          { text: "Arrest gang members", nextScene: "caseSolved" },
-          { text: "Try to gather more evidence", nextScene: "gatherEvidence" }
-        ]
-      },
-    
-      callBackup: {
-        background: '#333',
-        dialogues: [
-          "You call for backup. Police reinforcements arrive quickly.",
-          "Partner: Time to make the arrests!"
-        ],
-        choices: [
-          { text: "Arrest gang members", nextScene: "caseSolved" }
-        ]
-      },
-    
-      gatherEvidence: {
-        background: '#222',
-        dialogues: [
-          "You find a ledger listing all stolen items and gang members.",
-          "Partner: This will make the case airtight."
-        ],
-        clue: "Gang Ledger",
-        choices: [
-          { text: "Take ledger and arrest", nextScene: "caseSolved" }
-        ]
-      },
-    
-      caseSolved: {
-        background: '#004400',
-        dialogues: [
-          "The case is closed! The gang is behind bars and the mystery solved.",
-          "Partner: Nice work, detective. Ready for the next case?"
-        ],
-        choices: [
-          { text: "Restart Game", nextScene: "comedyIntro" }
-        ]
-      }
+      
+        informantScene: {
+          background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+          dialogues: [
+            "Your informant greets you in a dimly lit bar.",
+            "Informant: I heard whispers about a gang using strange symbols to mark territory.",
+            "Partner: Could that be related to the strange symbol note?"
+          ],
+          clue: "Gang Symbol Connection",
+          choices: [
+            { text: "Ask about gang members", nextScene: "gangInfo" },
+            { text: "Return to analysis", nextScene: "analyzeClues" }
+          ]
+        },
+      
+        gangInfo: {
+          background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+          dialogues: [
+            "Informant: The gang’s leader is called 'The Hooded One'.",
+            "Partner: Fits the hoodie clue. This is getting interesting."
+          ],
+          choices: [
+            { text: "Look for 'The Hooded One'", nextScene: "hoodedOneScene" },
+            { text: "Return to analysis", nextScene: "analyzeClues" }
+          ]
+        },
+      
+        hoodedOneScene: {
+          background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+          dialogues: [
+            "You track down a suspicious figure matching the description near the docks.",
+            "Partner: There he is... The Hooded One."
+          ],
+          choices: [
+            { text: "Confront him", nextScene: "confrontation" },
+            { text: "Observe quietly", nextScene: "observe" }
+          ]
+        },
+      
+        confrontation: {
+          background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+          dialogues: [
+            "You confront the hooded figure. He pulls down his hood revealing... it’s the store owner!",
+            "Partner: What?! That can’t be right."
+          ],
+          choices: [
+            { text: "Accuse store owner", nextScene: "accuseStoreOwner" },
+            { text: "Keep investigating", nextScene: "analyzeClues" }
+          ]
+        },
+      
+        accuseStoreOwner: {
+          background: '#800000',
+          dialogues: [
+            "You accuse the store owner of being involved in the crime.",
+            "Store Owner: I swear I didn’t do anything! It’s not what it looks like!",
+            "Partner: We need more proof."
+          ],
+          choices: [
+            { text: "Return to analysis", nextScene: "analyzeClues" }
+          ]
+        },
+      
+        observe: {
+          background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+          dialogues: [
+            "You observe quietly and notice the hooded figure slipping something into a locker.",
+            "Partner: Let’s check that locker."
+          ],
+          choices: [
+            { text: "Open locker", nextScene: "lockerScene" },
+            { text: "Follow figure further", nextScene: "followFigure" }
+          ]
+        },
+      
+        lockerScene: {
+          background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+          dialogues: [
+            "Inside the locker, you find stolen goods and evidence linking the store owner to the crime.",
+            "Partner: This is the proof we need!"
+          ],
+          clue: "Locker Evidence",
+          choices: [
+            { text: "Arrest store owner", nextScene: "caseSolved" },
+            { text: "Keep investigating", nextScene: "analyzeClues" }
+          ]
+        },
+      
+        followFigure: {
+          background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+          dialogues: [
+            "You follow the hooded figure to an abandoned warehouse.",
+            "Partner: Looks like the gang's hideout."
+          ],
+          choices: [
+            { text: "Enter warehouse", nextScene: "warehouseScene" },
+            { text: "Call for backup", nextScene: "callBackup" }
+          ]
+        },
+      
+        warehouseScene: {
+          background: 'url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=870&q=80")',
+          dialogues: [
+            "Inside the warehouse, you find gang members counting stolen goods.",
+            "Partner: We caught them red-handed!"
+          ],
+          choices: [
+            { text: "Arrest gang members", nextScene: "caseSolved" },
+            { text: "Try to gather more evidence", nextScene: "gatherEvidence" }
+          ]
+        },
+      
+        callBackup: {
+          background: '#333',
+          dialogues: [
+            "You call for backup. Police reinforcements arrive quickly.",
+            "Partner: Time to make the arrests!"
+          ],
+          choices: [
+            { text: "Arrest gang members", nextScene: "caseSolved" }
+          ]
+        },
+      
+        gatherEvidence: {
+          background: '#222',
+          dialogues: [
+            "You find a ledger listing all stolen items and gang members.",
+            "Partner: This will make the case airtight."
+          ],
+          clue: "Gang Ledger",
+          choices: [
+            { text: "Take ledger and arrest", nextScene: "caseSolved" }
+          ]
+        },
+      
+        caseSolved: {
+          background: '#004400',
+          dialogues: [
+            "The case is closed! The gang is behind bars and the mystery solved.",
+            "Partner: Nice work, detective. Ready for the next case?"
+          ],
+          choices: [
+            { text: "Restart Game", nextScene: "comedyIntro" }
+          ]
+        },
+  
+        intro: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective: Another body, same pattern.",
+        "Partner: What is this, Tuesday?",
+        "Suddenly, a shopping cart flies down the hill, crashing into Mr. Detective.",
+        "Emma: Oh! Sorry! I was running from angry geese!",
+        "Partner: Well, that's one way to meet a lady.",
+        "Mr. Detective: Are you hurt?",
+        "Emma: Just my pride and maybe my butt."
+      ],
+      choices: [
+        { text: "Help Emma up", nextScene: "meetEmma" },
+        { text: "Ignore her and continue investigation", nextScene: "continueInvestigation" }
+      ]
+    },
+  
+    meetEmma: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Emma: Thanks. I think I’m being followed by some dangerous people.",
+        "Mr. Detective: Dangerous how?",
+        "Emma: They want a painting my grandfather hid years ago.",
+        "Partner: Sounds like we’re in the middle of something big.",
+        "Mr. Detective: Let’s check out her story."
+      ],
+      choices: [
+        { text: "Trust Emma and investigate together", nextScene: "investigateTogether" },
+        { text: "Keep her out of it and work alone", nextScene: "workAlone" }
+      ]
+    },
+  
+    continueInvestigation: {
+      background: 'url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective ignores Emma and moves on.",
+        "Partner: You sure about that? She might know something.",
+        "A hooded figure watches from afar."
+      ],
+      choices: [
+        { text: "Follow the hooded figure", nextScene: "followFigure" },
+        { text: "Return to Emma and help her", nextScene: "meetEmma" }
+      ]
+    },
+  
+    investigateTogether: {
+      background: 'url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Emma: This way. The gang's hideout is near the old warehouse.",
+        "Partner: Ready for some action?",
+        "Mr. Detective: Always."
+      ],
+      choices: [
+        { text: "Enter warehouse quietly", nextScene: "warehouseScene" },
+        { text: "Call for backup", nextScene: "callBackup" }
+      ]
+    },
+  
+    workAlone: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective: Better keep her safe, but at a distance.",
+        "Partner: You sure this won’t backfire?",
+        "Mr. Detective: Trust me, I’ve handled worse."
+      ],
+      choices: [
+        { text: "Investigate crime scene", nextScene: "crimeScene" },
+        { text: "Stakeout nearby", nextScene: "stakeout" }
+      ]
+    },
+  
+    warehouseScene: {
+      background: 'url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Inside the warehouse, gang members count stolen goods.",
+        "Partner: We caught them red-handed!",
+        "Emma: That painting has to be here somewhere.",
+        "Mr. Detective: Search every corner."
+      ],
+      choices: [
+        { text: "Arrest gang members", nextScene: "caseSolved" },
+        { text: "Try to gather more evidence", nextScene: "gatherEvidence" }
+      ]
+    },
+  
+    callBackup: {
+      background: 'url("https://images.unsplash.com/photo-1533777324565-a04e00b9a2b1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Backup arrives just in time.",
+        "Captain: What’s the plan?",
+        "Mr. Detective: Quick sweep, no mistakes.",
+        "Emma watches nervously."
+      ],
+      choices: [
+        { text: "Lead the sweep", nextScene: "warehouseScene" },
+        { text: "Stay back and protect Emma", nextScene: "protectEmma" }
+      ]
+    },
+  
+    gatherEvidence: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective finds a hidden safe behind a painting.",
+        "Partner: Jackpot.",
+        "Emma: That must be what they’re after.",
+        "Mr. Detective: Let’s crack it open."
+      ],
+      choices: [
+        { text: "Open the safe", nextScene: "openSafe" },
+        { text: "Call for backup first", nextScene: "callBackup" }
+      ]
+    },
+  
+    openSafe: {
+      background: 'url("https://images.unsplash.com/photo-1524233501253-f127d9f84ae9?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Inside the safe is an old map and a mysterious key.",
+        "Emma: This is it! My grandfather’s secret.",
+        "Mr. Detective: We need to find what this opens."
+      ],
+      choices: [
+        { text: "Follow the map", nextScene: "followMap" },
+        { text: "Hold off and analyze the key", nextScene: "analyzeKey" }
+      ]
+    },
+  
+    followFigure: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You follow the hooded figure to an abandoned warehouse.",
+        "Partner: Looks like the gang's hideout."
+      ],
+      choices: [
+        { text: "Enter warehouse", nextScene: "warehouseScene" },
+        { text: "Call for backup", nextScene: "callBackup" }
+      ]
+    },
+  
+    protectEmma: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective stays close to Emma, watching the shadows.",
+        "Emma: I’m glad you’re here.",
+        "Mr. Detective: Don’t get used to it."
+      ],
+      choices: [
+        { text: "Comfort Emma", nextScene: "romanticMoment" },
+        { text: "Focus on the mission", nextScene: "warehouseScene" }
+      ]
+    },
+  
+    romanticMoment: {
+      background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Emma: You know, you’re not as grumpy as you look.",
+        "Mr. Detective: Maybe I’m just allergic to geese.",
+        "Partner: That’s a first.",
+        "They all laugh."
+      ],
+      choices: [
+        { text: "Share a smile", nextScene: "warehouseScene" },
+        { text: "Get back to work", nextScene: "warehouseScene" }
+      ]
+    },
+  
+    caseSolved: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "The gang is arrested, the painting recovered.",
+        "Emma: Thank you for saving me and my grandfather’s legacy.",
+        "Mr. Detective: Just doing my job.",
+        "Partner: And maybe finding love in the chaos."
+      ],
+      choices: [
+        { text: "Celebrate victory", nextScene: "ending" }
+      ]
+    },
+  
+    ending: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective and Emma walk off into the sunset.",
+        "Partner: So, when’s the wedding?",
+        "Mr. Detective: Let’s solve one more case first."
+      ],
+      choices: [ { text: "Crime Scene", nextScene: "crimeScene2" }]
+    },
+  
+    // Added new scenes for more length and complexity:
+  
+    crimeScene2: {
+      background: 'url("https://images.unsplash.com/photo-1532467291154-d97b86f9e0f1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective inspects the latest crime scene.",
+        "Partner: No signs of forced entry.",
+        "Emma (on phone): I think someone’s watching me.",
+        "Mr. Detective: Stay close."
+      ],
+      choices: [
+        { text: "Look for hidden clues", nextScene: "hiddenClues" },
+        { text: "Interview nearby witnesses", nextScene: "interviewWitnesses" }
+      ]
+    },
+  
+    stakeout: {
+      background: 'url("https://images.unsplash.com/photo-1526378729301-9e4f6f6f5e3a?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Partner: This stakeout is boring.",
+        "Mr. Detective: Patience is a virtue.",
+        "Emma arrives with coffee and a smile.",
+        "Emma: Thought you could use a break."
+      ],
+      choices: [
+        { text: "Accept coffee and chat", nextScene: "coffeeChat" },
+        { text: "Stay focused on stakeout", nextScene: "stakeoutContinued" }
+      ]
+    },
+  
+    hiddenClues: {
+      background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective finds a small symbol carved under a table.",
+        "Partner: Looks like a gang tattoo.",
+        "Emma: That matches what I saw on their leader."
+      ],
+      choices: [
+        { text: "Research the symbol", nextScene: "researchSymbol" },
+        { text: "Keep it for evidence", nextScene: "gatherEvidence" }
+      ]
+    },
+  
+    interviewWitnesses: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "A nervous man claims he saw someone lurking at night.",
+        "Partner: Could be our hooded figure.",
+        "Mr. Detective: Thanks. Stay safe."
+      ],
+      choices: [
+        { text: "Follow the lead", nextScene: "followFigure" },
+        { text: "Check security cameras", nextScene: "checkCameras" }
+      ]
+    },
+  
+    coffeeChat: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Emma: You know, this detective life isn’t so bad with company.",
+        "Mr. Detective: Don’t get used to it.",
+        "Partner: She’s got you wrapped around her finger."
+      ],
+      choices: [
+        { text: "Tease Mr. Detective", nextScene: "romanticMoment" },
+        { text: "Get back to stakeout", nextScene: "stakeoutContinued" }
+      ]
+    },
+  
+    stakeoutContinued: {
+      background: 'url("https://images.unsplash.com/photo-1526378729301-9e4f6f6f5e3a?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Hours pass with no sign of trouble.",
+        "Partner: I’m falling asleep here.",
+        "Suddenly, a shadow moves in the distance."
+      ],
+      choices: [
+        { text: "Investigate the shadow", nextScene: "followFigure" },
+        { text: "Call for backup", nextScene: "callBackup" }
+      ]
+    },
+  
+    researchSymbol: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective finds the symbol linked to a secret auction house.",
+        "Emma: That explains the stolen art.",
+        "Partner: Time to crash their party."
+      ],
+      choices: [
+        { text: "Plan to infiltrate auction", nextScene: "auctionInfiltration" },
+        { text: "Gather more evidence first", nextScene: "gatherEvidence" }
+      ]
+    },
+  
+    checkCameras: {
+      background: 'url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Security footage shows the hooded figure sneaking around at night.",
+        "Partner: There’s our suspect.",
+        "Mr. Detective: Let’s tail him."
+      ],
+      choices: [
+        { text: "Follow hooded figure", nextScene: "followFigure" },
+        { text: "Set a trap", nextScene: "setTrap" }
+      ]
+    },
+  
+    auctionInfiltration: {
+      background: 'url("https://images.unsplash.com/photo-1524233501253-f127d9f84ae9?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "At the auction, wealthy criminals bid on stolen art.",
+        "Emma: We need proof to bring them down.",
+        "Partner: Ready to make a scene?",
+        "Mr. Detective: Always."
+      ],
+      choices: [
+        { text: "Cause distraction", nextScene: "causeDistraction" },
+        { text: "Secretly gather evidence", nextScene: "gatherEvidence" }
+      ]
+    },
+  
+    setTrap: {
+      background: 'url("https://images.unsplash.com/photo-1533777324565-a04e00b9a2b1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective sets a clever trap to catch the hooded figure.",
+        "Partner: I hope this works.",
+        "Emma: Fingers crossed."
+      ],
+      choices: [
+        { text: "Wait and watch", nextScene: "trapTriggered" },
+        { text: "Abandon trap and follow figure", nextScene: "followFigure" }
+      ]
+    },
+  
+    causeDistraction: {
+      background: 'url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Partner knocks over a sculpture, causing chaos.",
+        "Guests scream and scatter.",
+        "Mr. Detective and Emma grab evidence."
+      ],
+      choices: [
+        { text: "Escape with evidence", nextScene: "escapeAuction" },
+        { text: "Fight gang members", nextScene: "fightScene" }
+      ]
+    },
+  
+    escapeAuction: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "They slip out unnoticed with crucial evidence.",
+        "Emma: That was close!",
+        "Mr. Detective: We’re one step closer."
+      ],
+      choices: [
+        { text: "Head to police station", nextScene: "caseSolved" },
+        { text: "Lay low and plan next move", nextScene: "stakeout" }
+      ]
+    },
+  
+    fightScene: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "A wild fight breaks out.",
+        "Partner: Take this!",
+        "Mr. Detective: You’re not getting away with this!"
+      ],
+      choices: [
+        { text: "Win the fight", nextScene: "caseSolved" },
+        { text: "Get knocked out", nextScene: "captured" }
+      ]
+    },
+  
+    captured: {
+      background: 'url("https://images.unsplash.com/photo-1533777324565-a04e00b9a2b1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective is captured but not for long.",
+        "Emma and Partner arrive to rescue him.",
+        "Emma: We’re not letting you get away!"
+      ],
+      choices: [
+        { text: "Break free", nextScene: "caseSolved" }
+      ]
+    },
+  
+    trapTriggered: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "The hooded figure falls right into the trap.",
+        "Partner: Gotcha!",
+        "Mr. Detective: Time for some answers."
+      ],
+      choices: [
+        { text: "Interrogate suspect", nextScene: "caseSolved" }
+      ]
+    },
+  
+    analyzeKey: {
+      background: 'url("https://images.unsplash.com/photo-1524233501253-f127d9f84ae9?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Partner: The key looks ancient.",
+        "Mr. Detective: It matches the symbol on the map.",
+        "Emma: Then let’s find the lock."
+      ],
+      choices: [
+        { text: "Follow the map", nextScene: "followMap" },
+        { text: "Ask local experts", nextScene: "localExperts" }
+      ]
+    },
+  
+    followMap: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "The map leads them to an old mansion on the outskirts of town.",
+        "Partner: Creepy place.",
+        "Emma: Perfect for hiding secrets."
+      ],
+      choices: [
+        { text: "Enter mansion", nextScene: "mansionExplore" },
+        { text: "Scout around first", nextScene: "mansionScout" }
+      ]
+    },
+  
+    localExperts: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "A historian confirms the key belongs to a secret vault.",
+        "Partner: So, vault it is.",
+        "Mr. Detective: Let’s get cracking."
+      ],
+      choices: [
+        { text: "Head to vault location", nextScene: "followMap" }
+      ]
+    },
+  
+    mansionExplore: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Inside the mansion, hidden passages and traps abound.",
+        "Partner: Watch your step.",
+        "Emma: This feels like a movie."
+      ],
+      choices: [
+        { text: "Explore basement", nextScene: "basement" },
+        { text: "Check upstairs", nextScene: "upstairs" }
+      ]
+    },
+  
+    mansionScout: {
+      background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "They find guards outside and decide to wait for nightfall.",
+        "Partner: Stealth mode: ON.",
+        "Mr. Detective: Let’s do this quietly."
+      ],
+      choices: [
+        { text: "Sneak in at night", nextScene: "mansionExplore" },
+        { text: "Call backup", nextScene: "callBackup" }
+      ]
+    },
+  
+    basement: {
+      background: 'url("https://images.unsplash.com/photo-1533777324565-a04e00b9a2b1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "In the basement, they discover the vault door.",
+        "Emma: This must be it!",
+        "Mr. Detective: Time to open it."
+      ],
+      choices: [
+        { text: "Use the key", nextScene: "vaultOpen" },
+        { text: "Look for traps", nextScene: "trapCheck" }
+      ]
+    },
+  
+    upstairs: {
+      background: 'url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Upstairs, they find old letters and photographs.",
+        "Partner: These might help.",
+        "Emma: Family secrets."
+      ],
+      choices: [
+        { text: "Read letters", nextScene: "readLetters" },
+        { text: "Go to basement", nextScene: "basement" }
+      ]
+    },
+  
+    vaultOpen: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "The vault opens, revealing priceless art and documents.",
+        "Emma: It’s all here!",
+        "Partner: Mission accomplished."
+      ],
+      choices: [
+        { text: "Secure the vault", nextScene: "caseSolved" }
+      ]
+    },
+  
+    trapCheck: {
+      background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective disarms several traps.",
+        "Partner: Good thing you took that course.",
+        "Emma: Let’s open the vault now."
+      ],
+      choices: [
+        { text: "Use the key", nextScene: "vaultOpen" }
+      ]
+    },
+  
+    readLetters: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "The letters reveal a family feud over the painting.",
+        "Emma: No wonder people want it.",
+        "Mr. Detective: Let’s keep moving."
+      ],
+      choices: [
+        { text: "Go to basement", nextScene: "basement" }
+      ]
+    },
+          secretPassage: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective finds a hidden lever behind a bookshelf.",
+        "Partner: Secret passage? Just like the movies!",
+        "Emma: Should we risk it?"
+      ],
+      choices: [
+        { text: "Pull the lever", nextScene: "secretRoom" },
+        { text: "Ignore it and search elsewhere", nextScene: "basement" }
+      ]
+    },
+  
+    secretRoom: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "The wall slides open revealing a dimly lit room full of artifacts.",
+        "Partner: Jackpot!",
+        "Emma: This explains the missing pieces.",
+        "Mr. Detective: Let’s gather everything."
+      ],
+      choices: [
+        { text: "Collect artifacts", nextScene: "trapTriggered" },
+        { text: "Look for more clues", nextScene: "secretRoomClues" }
+      ]
+    },
+  
+    secretRoomClues: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You find an old diary detailing the gang’s plans.",
+        "Partner: This could be the key to everything.",
+        "Emma: We should bring this to the cops."
+      ],
+      choices: [
+        { text: "Take diary and exit", nextScene: "caseSolved" },
+        { text: "Keep exploring", nextScene: "trapTriggered" }
+      ]
+    },
+  
+    mysteriousCaller: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective's phone rings late at night.",
+        "Caller: If you want to save her, stop digging.",
+        "Partner: That sounded serious.",
+        "Emma: Who could it be?"
+      ],
+      choices: [
+        { text: "Ignore the threat", nextScene: "caseSolved" },
+        { text: "Investigate the caller", nextScene: "traceCaller" }
+      ]
+    },
+  
+    traceCaller: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Partner hacks into the call logs.",
+        "Partner: Got a location. Looks like an abandoned factory.",
+        "Mr. Detective: Let’s check it out before it’s too late."
+      ],
+      choices: [
+        { text: "Go to factory", nextScene: "factoryScene" },
+        { text: "Call backup first", nextScene: "callBackup" }
+      ]
+    },
+  
+    factoryScene: {
+      background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "The factory is dark and silent, with eerie echoes.",
+        "Partner: Something feels off.",
+        "Emma: I hope we’re not too late."
+      ],
+      choices: [
+        { text: "Search inside", nextScene: "factorySearch" },
+        { text: "Wait outside and observe", nextScene: "factoryStakeout" }
+      ]
+    },
+  
+    factorySearch: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You find Emma tied up in a back room.",
+        "Mr. Detective: Don’t worry, we got you.",
+        "Partner: Let’s get out of here fast."
+      ],
+      choices: [
+        { text: "Escape quietly", nextScene: "escapeFactory" },
+        { text: "Fight your way out", nextScene: "fightScene" }
+      ]
+    },
+  
+    factoryStakeout: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You spot suspicious figures entering the factory.",
+        "Partner: Time to move in.",
+        "Mr. Detective: Let’s go!"
+      ],
+      choices: [
+        { text: "Enter stealthily", nextScene: "factorySearch" },
+        { text: "Call backup", nextScene: "callBackup" }
+      ]
+    },
+  
+    escapeFactory: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You escape the factory just as sirens approach.",
+        "Emma: That was too close!",
+        "Partner: Next time, no solo rescues."
+      ],
+      choices: [
+        { text: "Head to safe house", nextScene: "safeHouse" }
+      ]
+    },
+  
+    safeHouse: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "At the safe house, Emma thanks you sincerely.",
+        "Emma: I owe you my life.",
+        "Mr. Detective: Just keep out of trouble next time.",
+        "Partner: Yeah, try not to get kidnapped again."
+      ],
+      choices: [
+        { text: "Rest and recover", nextScene: "caseSolved" }
+      ]
+    },
+  
+    finalConfrontation: {
+      background: 'url("https://images.unsplash.com/photo-1533777324565-a04e00b9a2b1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "The gang leader challenges you to a final showdown.",
+        "Partner: Ready to end this?",
+        "Mr. Detective: Let’s finish it."
+      ],
+      choices: [
+        { text: "Fight leader", nextScene: "fightScene" },
+        { text: "Try to negotiate", nextScene: "negotiate" }
+      ]
+    },
+  
+    negotiate: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective tries to talk the leader down.",
+        "Leader: Why should I trust you?",
+        "Emma: Because we know your secrets."
+      ],
+      choices: [
+        { text: "Offer deal", nextScene: "caseSolved" },
+        { text: "Prepare for fight", nextScene: "fightScene" }
+      ]
+    },
+    // Previous scenes...
+  
+    surpriseVisit: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Emma shows up unexpectedly at your office.",
+        "Emma: I brought coffee... and trouble.",
+        "Partner: Trouble follows her like a shadow.",
+        "Mr. Detective: Glad you’re here, actually."
+      ],
+      choices: [
+        { text: "Ask about new clues", nextScene: "newClues" },
+        { text: "Take a coffee break", nextScene: "coffeeBreak" }
+      ]
+    },
+  
+    newClues: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Emma: I found a strange symbol on the ransom note.",
+        "Partner: Looks like a gang’s secret sign.",
+        "Mr. Detective: We’re onto something big."
+      ],
+      choices: [
+        { text: "Investigate symbol", nextScene: "investigateSymbol" },
+        { text: "Ignore it", nextScene: "caseSolved" }
+      ]
+    },
+  
+    coffeeBreak: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You all relax for a moment.",
+        "Partner: We deserve this after all the chaos.",
+        "Emma: And maybe a moment to breathe... and flirt.",
+        "Mr. Detective: Don’t get any ideas, Partner."
+      ],
+      choices: [
+        { text: "Tease Emma back", nextScene: "flirtScene" },
+        { text: "Focus on case", nextScene: "investigateSymbol" }
+      ]
+    },
+  
+    flirtScene: {
+      background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Emma: So, Detective, do you always solve cases with charm?",
+        "Partner: Or just with awkward jokes?",
+        "Mr. Detective: Maybe both.",
+        "Emma: Keep it coming."
+      ],
+      choices: [
+        { text: "Get serious", nextScene: "investigateSymbol" },
+        { text: "Keep flirting", nextScene: "flirtScene2" }
+      ]
+    },
+  
+    flirtScene2: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Partner: If you two keep flirting, I’m out of a job.",
+        "Emma: He’s jealous!",
+        "Mr. Detective: Not jealous, just focused.",
+        "Partner: Sure, sure."
+      ],
+      choices: [
+        { text: "Laugh it off and move on", nextScene: "investigateSymbol" }
+      ]
+    },
+  
+    investigateSymbol: {
+      background: 'url("https://images.unsplash.com/photo-1533777324565-a04e00b9a2b1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You trace the symbol to an old secret society.",
+        "Partner: Of course it’s a secret society.",
+        "Emma: What’s next? Secret handshakes?",
+        "Mr. Detective: Let’s find out."
+      ],
+      choices: [
+        { text: "Visit society’s meeting place", nextScene: "secretMeeting" },
+        { text: "Look for members nearby", nextScene: "stakeout" }
+      ]
+    },
+  
+    secretMeeting: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You sneak into a secret meeting at night.",
+        "Partner: Everyone looks serious... and suspicious.",
+        "Emma: And a bit creepy.",
+        "Mr. Detective: Time to blend in."
+      ],
+      choices: [
+        { text: "Eavesdrop on conversation", nextScene: "eavesdrop" },
+        { text: "Confront the leader", nextScene: "finalConfrontation" }
+      ]
+    },
+  
+    stakeout: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You watch known members meeting in a dark alley.",
+        "Partner: They’re trading something.",
+        "Emma: Looks like the missing artifacts.",
+        "Mr. Detective: Let’s catch them red-handed."
+      ],
+      choices: [
+        { text: "Intercept deal", nextScene: "gangRaid" },
+        { text: "Follow them quietly", nextScene: "followFigure" }
+      ]
+    },
+  
+    gangRaid: {
+      background: 'url("https://images.unsplash.com/photo-1533777324565-a04e00b9a2b1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "A wild fight breaks out.",
+        "Partner: Take this!",
+        "Mr. Detective: You’re not getting away with this!"
+      ],
+      choices: [
+        { text: "Win the fight", nextScene: "caseSolved" },
+        { text: "Get knocked out", nextScene: "captured" }
+      ]
+    },
+  const story = {
+    // Previous scenes...
+  
+    aftermath: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "After the raid, you and Partner catch your breath.",
+        "Emma: That was intense... but we did it.",
+        "Partner: You guys make a good team.",
+        "Mr. Detective: Yeah, even if Partner can’t keep up."
+      ],
+      choices: [
+        { text: "Tease Partner", nextScene: "partnerTeased" },
+        { text: "Plan next move", nextScene: "planNextMove" }
+      ]
+    },
+  
+    partnerTeased: {
+      background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Partner: Hey! I was covering your backs!",
+        "Emma: Sure, Mr. Clumsy.",
+        "Mr. Detective: Don’t worry, Partner. We love you anyway.",
+        "Partner: I’m insulted... but I forgive you."
+      ],
+      choices: [
+        { text: "Laugh it off", nextScene: "planNextMove" }
+      ]
+    },
+  
+    planNextMove: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective: We’ve got the gang on the run, but the mastermind is still out there.",
+        "Emma: And I have a feeling it’s someone close.",
+        "Partner: Time to dig deeper."
+      ],
+      choices: [
+        { text: "Investigate suspects", nextScene: "investigateSuspects" },
+        { text: "Stakeout the city", nextScene: "cityStakeout" }
+      ]
+    },
+  
+    investigateSuspects: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You look into the backgrounds of known criminals and insiders.",
+        "Partner: Wait, one name stands out.",
+        "Emma: It’s... the mayor?",
+        "Mr. Detective: That explains a lot."
+      ],
+      choices: [
+        { text: "Confront the mayor", nextScene: "mayorConfrontation" },
+        { text: "Gather more evidence", nextScene: "gatherEvidence" }
+      ]
+    },
+  
+    cityStakeout: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You and Partner keep watch over the city streets at night.",
+        "Partner: This is boring... any coffee?",
+        "Emma: You snooze, you lose.",
+        "Mr. Detective: Eyes open, everyone."
+      ],
+      choices: [
+        { text: "Spot suspicious activity", nextScene: "followFigure" },
+        { text: "Take a quick break", nextScene: "coffeeBreak" }
+      ]
+    },
+  
+    mayorConfrontation: {
+      background: 'url("https://images.unsplash.com/photo-1533777324565-a04e00b9a2b1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You confront the mayor in his office.",
+        "Mayor: You don’t have proof.",
+        "Partner: Yet.",
+        "Mr. Detective: We’re coming for you."
+      ],
+      choices: [
+        { text: "Search mayor’s office", nextScene: "searchOffice" },
+        { text: "Leave and watch", nextScene: "cityStakeout" }
+      ]
+    },
+  
+    gatherEvidence: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You find secret documents linking the mayor to the gang.",
+        "Emma: This is big.",
+        "Partner: We need to be careful now.",
+        "Mr. Detective: Let’s plan the takedown."
+      ],
+      choices: [
+        { text: "Prepare for takedown", nextScene: "finalConfrontation" },
+        { text: "Share info with cops", nextScene: "callBackup" }
+      ]
+    },
+  
+    searchOffice: {
+      background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You secretly search the mayor’s office.",
+        "Partner: Found a hidden safe.",
+        "Emma: Let me try to crack it.",
+        "Mr. Detective: Hurry, before someone comes."
+      ],
+      choices: [
+        { text: "Open safe", nextScene: "safeContents" },
+        { text: "Abort and leave", nextScene: "cityStakeout" }
+      ]
+    },
+  
+    safeContents: {
+      background: 'url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Inside the safe are photos, money, and plans.",
+        "Emma: This is the proof we need.",
+        "Partner: And blackmail material.",
+        "Mr. Detective: Time to end this."
+      ],
+      choices: [
+        { text: "Use evidence to confront mayor", nextScene: "finalConfrontation" }
+      ]
+    },
+         finalConfrontation: {
+      background: 'url("https://images.unsplash.com/photo-1533777324565-a04e00b9a2b1?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You and Partner confront the mayor with the evidence.",
+        "Mayor: You think you can ruin me?",
+        "Emma: We already have.",
+        "Partner: It’s over, boss."
+      ],
+      choices: [
+        { text: "Arrest the mayor", nextScene: "mayorArrested" },
+        { text: "Negotiate surrender", nextScene: "negotiate" }
+      ]
+    },
+  
+    negotiate: {
+      background: 'url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "Mr. Detective tries to negotiate to avoid violence.",
+        "Mayor: Fine, but I want immunity.",
+        "Emma: No deals for criminals.",
+        "Partner: Yeah, you’re going to jail."
+      ],
+      choices: [
+        { text: "Refuse deal, arrest him", nextScene: "mayorArrested" },
+        { text: "Consider deal", nextScene: "caseSolved" }
+      ]
+    },
+  
+    mayorArrested: {
+      background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "The mayor is handcuffed and led away.",
+        "Emma: Justice served!",
+        "Partner: And no one got hurt. Well, except his ego.",
+        "Mr. Detective: Case closed."
+      ],
+      choices: [
+        { text: "Celebrate at diner", nextScene: "celebration" }
+      ]
+    },
+  
+    celebration: {
+      background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+      dialogues: [
+        "You, Partner, and Emma celebrate the victory over burgers and milkshakes.",
+        "Emma: To teamwork and coffee!",
+        "Partner: And maybe fewer kidnappings.",
+        "Mr. Detective: I’ll drink to that.",
+        "Emma: So, Detective, what’s next for us?",
+        "Mr. Detective: Whatever adventure comes our way—together."
+      ],
+      choices: [
+        { text: "The End", nextScene: null }
+      ]
+    }
+        
     };
 
     const dialogueElem = document.getElementById('dialogue');
