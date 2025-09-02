@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detective Text Adventure - Extended</title>
+  <style>
+    body {
+      background: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #222;
+      box-shadow: 0 0 15px #000;
+    }
+    #dialogue {
+      white-space: pre-line;
+      min-height: 140px;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    #choices button {
+      margin-right: 10px;
+      margin-top: 5px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+      background-color: #444;
+      color: #eee;
+      transition: background-color 0.3s;
+    }
+    #choices button:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dialogue"></div>
+  <div id="choices"></div>
+
+  <script>
+    const gameState = {
+      clues: [],
+      currentScene: 'intro',
+      accused: null,
+      suspects: ['Mr. Green', 'Ms. Violet', 'Colonel Mustard', 'Mrs. Peacock'],
+      interrogations: {
+        'Mr. Green': false,
+        'Ms. Violet': false,
+        'Colonel Mustard': false,
+        'Mrs. Peacock': false
+      }
+    };
+
+    const scenes = {
+      intro: {
+        dialogues: [
+          "Partner: Detective, we've got a fresh case at the old mansion.",
+          "Partner: The victim was found dead in the library, no forced entry.",
+          "Partner: Where should we start?"
+        ],
+        choices: [
+          { text: "Review the case file", nextScene: "caseFile" },
+          { text: "Go to the mansion", nextScene: "mansionArrival" }
+        ]
+      },
+      caseFile: {
+        dialogues: [
+          "Partner: Victim had meetings with 4 suspects earlier today.",
+          "Partner: Suspects are Mr. Green, Ms. Violet, Colonel Mustard, and Mrs. Peacock.",
+          "Partner: Each one has a possible motive.",
+          "Partner: Ready to head to the mansion?"
+        ],
+        choices: [
+          { text: "Go to the mansion", nextScene: "mansionArrival" },
+          { text: "Ask about suspects", nextScene: "suspectInfo" }
+        ]
+      },
+      suspectInfo: {
+        dialogues: [
+          "Partner: Mr. Green is the business partner; they had financial disputes.",
+          "Partner: Ms. Violet is a former lover, they had a recent fight.",
+          "Partner: Colonel Mustard is a rival collector, jealous of the victim.",
+          "Partner: Mrs. Peacock is the housekeeper, knows everyone's secrets.",
+          "Partner: Anything else you want to do before the mansion?"
+        ],
+        choices: [
+          { text: "Go to the mansion", nextScene: "mansionArrival" },
+          { text: "Review the case file again", nextScene: "caseFile" }
+        ]
+      },
+      mansionArrival: {
+        dialogues: [
+          "You arrive at the mansion. The eerie silence is unsettling.",
+          "Partner: Where should we start?"
+        ],
+        choices: [
+          { text: "Inspect the library", nextScene: "library" },
+          { text: "Talk to the butler", nextScene: "butler" },
+          { text: "Talk to Mrs. Peacock (housekeeper)", nextScene: "mrsPeacock" },
+          { text: "Inspect the garden", nextScene: "garden" }
+        ]
+      },
+      library: {
+        dialogues: [
+          "You find a torn page from the victim’s diary on the floor.",
+          "Partner: Clue added: Torn Diary Page.",
+          "Partner: Anything else?"
+        ],
+        clue: "Torn Diary Page",
+        choices: [
+          { text: "Look at the desk drawer", nextScene: "deskDrawer" },
+          { text: "Go back to the mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      deskDrawer: {
+        dialogues: [
+          "You find a small locked box. It's locked tight.",
+          "Partner: Maybe we can find a key elsewhere."
+        ],
+        choices: [
+          { text: "Inspect the kitchen", nextScene: "kitchen" },
+          { text: "Talk to the butler", nextScene: "butler" },
+          { text: "Go back to library", nextScene: "library" }
+        ]
+      },
+      kitchen: {
+        dialogues: [
+          "You find a bloody knife in the sink.",
+          "Partner: Clue added: Bloody Knife.",
+          "Partner: Look around or talk to someone?"
+        ],
+        clue: "Bloody Knife",
+        choices: [
+          { text: "Talk to Mrs. Peacock", nextScene: "mrsPeacock" },
+          { text: "Inspect the garden", nextScene: "garden" },
+          { text: "Go back to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      butler: {
+        dialogues: [
+          "The butler seems nervous.",
+          "Partner: Ask about his whereabouts during the murder."
+        ],
+        choices: [
+          { text: "Ask about his whereabouts", nextScene: "butlerAlibi" },
+          { text: "Ask if he saw anything suspicious", nextScene: "butlerSuspicious" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      butlerAlibi: {
+        dialogues: [
+          "Butler: I was cleaning the garden at that time.",
+          "Partner: Clue added: Butler's Alibi.",
+          "Anything else?"
+        ],
+        clue: "Butler's Alibi",
+        choices: [
+          { text: "Ask if he saw anything suspicious", nextScene: "butlerSuspicious" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      butlerSuspicious: {
+        dialogues: [
+          "Butler: I saw Colonel Mustard acting nervously near the library earlier.",
+          "Partner: Clue added: Colonel Mustard Nervous.",
+          "Do you want to interrogate Colonel Mustard?"
+        ],
+        clue: "Colonel Mustard Nervous",
+        choices: [
+          { text: "Interrogate Colonel Mustard", nextScene: "interrogateMustard" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      mrsPeacock: {
+        dialogues: [
+          "Mrs. Peacock: I was preparing dinner in the kitchen, saw nothing unusual.",
+          "Partner: Do you want to interrogate Mrs. Peacock?"
+        ],
+        choices: [
+          { text: "Interrogate Mrs. Peacock", nextScene: "interrogatePeacock" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      garden: {
+        dialogues: [
+          "You find muddy footprints leading toward the shed.",
+          "Partner: Clue added: Muddy Footprints.",
+          "Want to check the shed?"
+        ],
+        clue: "Muddy Footprints",
+        choices: [
+          { text: "Check the shed", nextScene: "shed" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      shed: {
+        dialogues: [
+          "Inside the shed you find a broken watch with initials 'M.V.'",
+          "Partner: Clue added: Broken Watch.",
+          "Could this be Ms. Violet's? What next?"
+        ],
+        clue: "Broken Watch",
+        choices: [
+          { text: "Interrogate Ms. Violet", nextScene: "interrogateViolet" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      interrogateMustard: {
+        dialogues: [
+          "Colonel Mustard: I was just checking some books, didn't kill anyone!",
+          "Partner: Seems nervous. Let's see if we can press him."
+        ],
+        choices: [
+          { text: "Press harder", nextScene: "pressMustard" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      pressMustard: {
+        dialogues: [
+          "Colonel Mustard: Fine! I saw Ms. Violet near the shed around the murder time!",
+          "Partner: Clue added: Mustard saw Violet near shed.",
+          "What do you want to do now?"
+        ],
+        clue: "Mustard saw Violet near shed",
+        choices: [
+          { text: "Interrogate Ms. Violet", nextScene: "interrogateViolet" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      interrogatePeacock: {
+        dialogues: [
+          "Mrs. Peacock: I swear I was in the kitchen all evening. I have no reason to hurt the victim.",
+          "Partner: Clue added: Peacock's Alibi.",
+          "What next?"
+        ],
+        clue: "Peacock's Alibi",
+        choices: [
+          { text: "Inspect kitchen", nextScene: "kitchen" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      interrogateViolet: {
+        dialogues: [
+          "Ms. Violet: Yes, I was near the shed but I didn't do anything wrong!",
+          "Partner: She looks shaken. Should we press her?"
+        ],
+        choices: [
+          { text: "Press Violet", nextScene: "pressViolet" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      pressViolet: {
+        dialogues: [
+          "Ms. Violet: Alright! The victim threatened to cut me off financially if I didn’t leave town!",
+          "Partner: Clue added: Violet threatened.",
+          "Time to decide your next move."
+        ],
+        clue: "Violet threatened",
+        choices: [
+          { text: "Accuse a suspect", nextScene: "accuse" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      accuse: {
+        dialogues: [
+          "Partner: Based on what we've gathered, who do you think the culprit is?"
+        ],
+        choices: [
+          { text: "Mr. Green", nextScene: "accuseResult", suspect: "Mr. Green" },
+          { text: "Ms. Violet", nextScene: "accuseResult", suspect: "Ms. Violet" },
+          { text: "Colonel Mustard", nextScene: "accuseResult", suspect: "Colonel Mustard" },
+          { text: "Mrs. Peacock", nextScene: "accuseResult", suspect: "Mrs. Peacock" }
+        ]
+      },
+      accuseResult: {
+        // dynamically handled
+      }
+    };
+
+    const dialogueDiv = document.getElementById('dialogue');
+    const choicesDiv = document.getElementById('choices');
+
+    function saveGame() {
+      localStorage.setItem('detectiveGameState', JSON.stringify(gameState));
+    }
+
+    function loadGame() {
+      const saved = localStorage.getItem('detectiveGameState');
+      if (saved) {
+        Object.assign(gameState, JSON.parse(saved));
+      }
+    }
+
+    function showScene(sceneKey) {
+      gameState.currentScene = sceneKey;
+      saveGame();
+
+      const scene = scenes[sceneKey];
+      if (!scene) return;
+
+      dialogueDiv.textContent = '';
+      choicesDiv.innerHTML = '';
+
+      let idx = 0;
+
+      function showNextDialogue() {
+        if (idx < scene.dialogues.length) {
+          dialogueDiv.textContent += scene.dialogues[idx] + '\n\n';
+          idx++;
+          setTimeout(showNextDialogue, 1500);
+        } else {
+          if (scene.clue && !gameState.clues.includes(scene.clue)) {
+            gameState.clues.push(scene.clue);
+            saveGame();
+          }
+          showChoices(scene.choices);
+        }
+      }
+
+      showNextDialogue();
+    }
+
+    function showChoices(choices) {
+      choicesDiv.innerHTML = '';
+      choices.forEach(choice => {
+        const btn = document.createElement('button');
+        btn.textContent = choice.text;
+        btn.onclick = () => {
+          if (choice.suspect) {
+            gameState.accused = choice.suspect;
+          }
+          if (choice.nextScene === 'accuseResult') {
+            showAccuseResult();
+          } else {
+            showScene(choice.nextScene);
+          }
+        };
+        choicesDiv.appendChild(btn);
+      });
+    }
+
+    function showAccuseResult() {
+      dialogueDiv.textContent = '';
+      choicesDiv.innerHTML = '';
+
+      const accused = gameState.accused;
+      const clues = gameState.clues;
+
+      let text = `You accused ${accused}.\n\n`;
+
+      // Logic to decide if accusation is correct based on clues
+      // Ms. Violet is culprit if "Bloody Knife", "Broken Watch", and "Violet threatened" found
+      if (accused === "Ms. Violet" &&
+          clues.includes("Bloody Knife") &&
+          clues.includes("Broken Watch") &&
+          clues.includes("Violet threatened")) {
+        text += "That's correct! Ms. Violet is the culprit! You cracked the case! 🎉";
+      } else if (accused === "Colonel Mustard" && clues.includes("Colonel Mustard Nervous")) {
+        text += "You caught Colonel Mustard acting suspiciously, but lack concrete evidence. Case remains unsolved.";
+      } else if (accused === "Mrs. Peacock" && clues.includes("Peacock's Alibi")) {
+        text += "Mrs. Peacock has a strong alibi. Your accusation is wrong.";
+      } else if (accused === "Mr. Green") {
+        text += "Mr. Green denies everything and you have no evidence against him. Wrong accusation.";
+      } else {
+        text += "Your accusation doesn't fit the clues. The culprit escapes justice.";
+      }
+
+      text += `\n\nClues found:\n- ${clues.join("\n- ")}`;
+
+      dialogueDiv.textContent = text;
+
+      const restartBtn = document.createElement('button');
+      restartBtn.textContent = 'Restart Game';
+      restartBtn.onclick = () => {
+        localStorage.removeItem('detectiveGameState');
+        location.reload();
+      };
+      choicesDiv.appendChild(restartBtn);
+    }
+
+    loadGame();
+    showScene(gameState.currentScene);
+
+  </script>
+
+</body>
+</html>
