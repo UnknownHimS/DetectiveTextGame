@@ -79,36 +79,80 @@
   }
   
   /* Responsive adjustments for smaller screens */
-  @media (max-width: 680px) {
-    body {
-      
-      
-      max-width: 100%;
-      font-size:2rem;
-      border-radius: 0;
-    }
-  
-    #dialogue {
-      min-height: 120px;
-      font-size: 1rem;
-      padding: 12px;
-    }
-  
-    #choices button {
-      font-size: 0.9rem;
-      padding: 10px 12px;
-      min-width: 100%;
-      margin: 6px 0;
-      display: block;
-    }
-  
-    #musicControl {
-      top: 10px;
-      right: 10px;
-      padding: 8px 12px;
-      font-size: 0.9rem;
-    }
+  /* General reset and base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* Small devices: phones */
+@media (max-width: 680px) {
+  body {
+    max-width: 100%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    padding: 10px;
   }
+
+  #dialogue {
+    min-height: 140px;
+    font-size: 1.1rem;
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  #choices button {
+    font-size: 1rem;
+    padding: 14px 16px;
+    width: 100%;
+    margin: 10px 0;
+    display: block;
+    border-radius: 6px;
+  }
+
+  #musicControl {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 14px;
+    font-size: 1rem;
+    z-index: 1000;
+  }
+}
+
+/* Medium devices: tablets (portrait and small landscape) */
+@media (min-width: 681px) and (max-width: 1024px) {
+  body {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    padding: 20px;
+  }
+
+  #dialogue {
+    min-height: 160px;
+    font-size: 1.2rem;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #choices button {
+    font-size: 1.1rem;
+    padding: 16px 20px;
+    min-width: 80%;
+    margin: 12px auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  #musicControl {
+    top: 12px;
+    right: 12px;
+    padding: 10px 16px;
+    font-size: 1.1rem;
+  }
+}
+
 
   </style>
 </head>
