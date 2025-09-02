@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Detective Text Adventure - Extended</title>
+  <title>Detective Text Adventure - With Music</title>
   <style>
     body {
-      background: #121212;
+      background: #222;
       color: #eee;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       max-width: 700px;
@@ -14,6 +14,11 @@
       border-radius: 10px;
       background-color: #222;
       box-shadow: 0 0 15px #000;
+      transition: background 1s ease;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      position: relative;
     }
     #dialogue {
       white-space: pre-line;
@@ -21,6 +26,10 @@
       margin-bottom: 20px;
       font-size: 1.1rem;
       line-height: 1.5;
+      background-color: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: inset 0 0 10px #000;
     }
     #choices button {
       margin-right: 10px;
@@ -37,14 +46,60 @@
     #choices button:hover {
       background-color: #666;
     }
+    #musicControl {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      color: #eee;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      user-select: none;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
 
+  <button id="musicControl">🔈 Mute Music</button>
+
   <div id="dialogue"></div>
   <div id="choices"></div>
 
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_85b73935e1.mp3?filename=mysterious-puzzle-11560.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
   <script>
+    const musicControl = document.getElementById('musicControl');
+    const bgMusic = document.getElementById('bgMusic');
+
+    // Try to play music after user interaction (some browsers require this)
+    function tryPlayMusic() {
+      bgMusic.play().catch(() => {
+        // Autoplay blocked
+      });
+    }
+
+    musicControl.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        musicControl.textContent = '🔈 Mute Music';
+      } else {
+        bgMusic.pause();
+        musicControl.textContent = '🔇 Play Music';
+      }
+    });
+
+    // Start music on first user interaction to avoid autoplay block
+    document.body.addEventListener('click', tryPlayMusic, { once: true });
+
+    // Your existing game code below
+
     const gameState = {
       clues: [],
       currentScene: 'intro',
@@ -60,6 +115,7 @@
 
     const scenes = {
       intro: {
+        background: '#1e1e2f',
         dialogues: [
           "Partner: Detective, we've got a fresh case at the old mansion.",
           "Partner: The victim was found dead in the library, no forced entry.",
@@ -71,6 +127,7 @@
         ]
       },
       caseFile: {
+        background: '#2d2d3d',
         dialogues: [
           "Partner: Victim had meetings with 4 suspects earlier today.",
           "Partner: Suspects are Mr. Green, Ms. Violet, Colonel Mustard, and Mrs. Peacock.",
@@ -83,6 +140,7 @@
         ]
       },
       suspectInfo: {
+        background: '#2d2d3d',
         dialogues: [
           "Partner: Mr. Green is the business partner; they had financial disputes.",
           "Partner: Ms. Violet is a former lover, they had a recent fight.",
@@ -96,6 +154,7 @@
         ]
       },
       mansionArrival: {
+        background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "You arrive at the mansion. The eerie silence is unsettling.",
           "Partner: Where should we start?"
@@ -108,6 +167,7 @@
         ]
       },
       library: {
+        background: 'url("https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "You find a torn page from the victim’s diary on the floor.",
           "Partner: Clue added: Torn Diary Page.",
@@ -120,6 +180,7 @@
         ]
       },
       deskDrawer: {
+        background: 'url("https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "You find a small locked box. It's locked tight.",
           "Partner: Maybe we can find a key elsewhere."
@@ -131,6 +192,7 @@
         ]
       },
       kitchen: {
+        background: 'url("https://images.unsplash.com/photo-1543353071-087092ec393e?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "You find a bloody knife in the sink.",
           "Partner: Clue added: Bloody Knife.",
@@ -144,6 +206,7 @@
         ]
       },
       butler: {
+        background: '#3a3a3a',
         dialogues: [
           "The butler seems nervous.",
           "Partner: Ask about his whereabouts during the murder."
@@ -155,6 +218,7 @@
         ]
       },
       butlerAlibi: {
+        background: '#3a3a3a',
         dialogues: [
           "Butler: I was cleaning the garden at that time.",
           "Partner: Clue added: Butler's Alibi.",
@@ -167,6 +231,7 @@
         ]
       },
       butlerSuspicious: {
+        background: '#3a3a3a',
         dialogues: [
           "Butler: I saw Colonel Mustard acting nervously near the library earlier.",
           "Partner: Clue added: Colonel Mustard Nervous.",
@@ -179,6 +244,7 @@
         ]
       },
       mrsPeacock: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "Mrs. Peacock: I was preparing dinner in the kitchen, saw nothing unusual.",
           "Partner: Do you want to interrogate Mrs. Peacock?"
@@ -189,6 +255,7 @@
         ]
       },
       garden: {
+        background: 'url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "You find muddy footprints leading toward the shed.",
           "Partner: Clue added: Muddy Footprints.",
@@ -201,6 +268,7 @@
         ]
       },
       shed: {
+        background: 'url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "Inside the shed you find a broken watch with initials 'M.V.'",
           "Partner: Clue added: Broken Watch.",
@@ -213,62 +281,80 @@
         ]
       },
       interrogateMustard: {
+        background: '#3a3a3a',
         dialogues: [
           "Colonel Mustard: I was just checking some books, didn't kill anyone!",
           "Partner: Seems nervous. Let's see if we can press him."
         ],
         choices: [
-          { text: "Press harder", nextScene: "pressMustard" },
+          { text: "Press Colonel Mustard", nextScene: "pressMustard" },
           { text: "Return to mansion entrance", nextScene: "mansionArrival" }
         ]
       },
       pressMustard: {
+        background: '#3a3a3a',
         dialogues: [
-          "Colonel Mustard: Fine! I saw Ms. Violet near the shed around the murder time!",
-          "Partner: Clue added: Mustard saw Violet near shed.",
-          "What do you want to do now?"
+          "Colonel Mustard: Fine! I admit, I argued with the victim about a rare book!",
+          "Partner: Clue added: Mustard Argument.",
+          "What's next?"
         ],
-        clue: "Mustard saw Violet near shed",
+        clue: "Mustard Argument",
         choices: [
-          { text: "Interrogate Ms. Violet", nextScene: "interrogateViolet" },
+          { text: "Accuse a suspect", nextScene: "accuse" },
           { text: "Return to mansion entrance", nextScene: "mansionArrival" }
         ]
       },
       interrogatePeacock: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
-          "Mrs. Peacock: I swear I was in the kitchen all evening. I have no reason to hurt the victim.",
+          "Mrs. Peacock: I was in the kitchen all night. You can ask the butler.",
           "Partner: Clue added: Peacock's Alibi.",
-          "What next?"
+          "Want to press her?"
         ],
         clue: "Peacock's Alibi",
         choices: [
-          { text: "Inspect kitchen", nextScene: "kitchen" },
+          { text: "Press Mrs. Peacock", nextScene: "pressPeacock" },
+          { text: "Return to mansion entrance", nextScene: "mansionArrival" }
+        ]
+      },
+      pressPeacock: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80")',
+        dialogues: [
+          "Mrs. Peacock: I swear I know nothing! Please stop bothering me!",
+          "Partner: Not much more from her.",
+          "Where to next?"
+        ],
+        choices: [
+          { text: "Accuse a suspect", nextScene: "accuse" },
           { text: "Return to mansion entrance", nextScene: "mansionArrival" }
         ]
       },
       interrogateViolet: {
+        background: '#4a2c3b',
         dialogues: [
-          "Ms. Violet: Yes, I was near the shed but I didn't do anything wrong!",
-          "Partner: She looks shaken. Should we press her?"
+          "Ms. Violet: The victim was going to cut me off financially if I didn’t leave town!",
+          "Partner: Clue added: Violet threatened.",
+          "Press her or go back?"
         ],
+        clue: "Violet threatened",
         choices: [
           { text: "Press Violet", nextScene: "pressViolet" },
           { text: "Return to mansion entrance", nextScene: "mansionArrival" }
         ]
       },
       pressViolet: {
+        background: '#4a2c3b',
         dialogues: [
-          "Ms. Violet: Alright! The victim threatened to cut me off financially if I didn’t leave town!",
-          "Partner: Clue added: Violet threatened.",
-          "Time to decide your next move."
+          "Ms. Violet: Okay! I admit it! But I didn't kill him!",
+          "Partner: You have to decide who to accuse."
         ],
-        clue: "Violet threatened",
         choices: [
           { text: "Accuse a suspect", nextScene: "accuse" },
           { text: "Return to mansion entrance", nextScene: "mansionArrival" }
         ]
       },
       accuse: {
+        background: '#111',
         dialogues: [
           "Partner: Based on what we've gathered, who do you think the culprit is?"
         ],
@@ -280,7 +366,7 @@
         ]
       },
       accuseResult: {
-        // dynamically handled
+        // handled dynamically below
       }
     };
 
@@ -304,6 +390,13 @@
 
       const scene = scenes[sceneKey];
       if (!scene) return;
+
+      // Update background
+      if (scene.background) {
+        document.body.style.background = scene.background;
+      } else {
+        document.body.style.background = '#222';
+      }
 
       dialogueDiv.textContent = '';
       choicesDiv.innerHTML = '';
@@ -356,14 +449,15 @@
       let text = `You accused ${accused}.\n\n`;
 
       // Logic to decide if accusation is correct based on clues
-      // Ms. Violet is culprit if "Bloody Knife", "Broken Watch", and "Violet threatened" found
-      if (accused === "Ms. Violet" &&
-          clues.includes("Bloody Knife") &&
-          clues.includes("Broken Watch") &&
-          clues.includes("Violet threatened")) {
+      if (
+        accused === "Ms. Violet" &&
+        clues.includes("Bloody Knife") &&
+        clues.includes("Broken Watch") &&
+        clues.includes("Violet threatened")
+      ) {
         text += "That's correct! Ms. Violet is the culprit! You cracked the case! 🎉";
-      } else if (accused === "Colonel Mustard" && clues.includes("Colonel Mustard Nervous")) {
-        text += "You caught Colonel Mustard acting suspiciously, but lack concrete evidence. Case remains unsolved.";
+      } else if (accused === "Colonel Mustard" && clues.includes("Mustard Argument")) {
+        text += "You caught Colonel Mustard arguing, but there’s not enough evidence. The case remains unsolved.";
       } else if (accused === "Mrs. Peacock" && clues.includes("Peacock's Alibi")) {
         text += "Mrs. Peacock has a strong alibi. Your accusation is wrong.";
       } else if (accused === "Mr. Green") {
@@ -387,8 +481,6 @@
 
     loadGame();
     showScene(gameState.currentScene);
-
   </script>
-
 </body>
 </html>
