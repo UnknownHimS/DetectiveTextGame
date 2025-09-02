@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Detective Text Adventure – With Music</title>
-  <link rel="icon" type="image/png"
-    href="https://favicon.io/emoji-favicons/magnifying-glass/favicon-32x32.png" sizes="32x32" />
+  <title>Detective Text Adventure - With Music</title>
+  <link rel="icon" type="image/png" href="https://favicon.io/emoji-favicons/magnifying-glass/favicon-32x32.png" sizes="32x32" />
   <style>
     body {
       background: #222;
@@ -14,6 +13,7 @@
       margin: 40px auto;
       padding: 20px;
       border-radius: 10px;
+      background-color: #222;
       box-shadow: 0 0 15px #000;
       transition: background 1s ease;
       background-repeat: no-repeat;
@@ -27,7 +27,7 @@
       margin-bottom: 20px;
       font-size: 1.1rem;
       line-height: 1.5;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0,0,0,0.5);
       padding: 15px;
       border-radius: 8px;
       box-shadow: inset 0 0 10px #000;
@@ -51,7 +51,7 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.6);
       border: none;
       color: #eee;
       padding: 10px 15px;
@@ -64,13 +64,11 @@
   </style>
 </head>
 <body>
-
   <button id="musicControl">🔈 Mute Music</button>
   <div id="dialogue"></div>
   <div id="choices"></div>
   <audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_85b73935e1.mp3?filename=mysterious-puzzle-11560.mp3"
-      type="audio/mpeg" />
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_85b73935e1.mp3?filename=mysterious-puzzle-11560.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
@@ -78,8 +76,11 @@
     const musicControl = document.getElementById('musicControl');
     const bgMusic = document.getElementById('bgMusic');
 
+    // Try to play music after user interaction (some browsers require this)
     function tryPlayMusic() {
-      bgMusic.play().catch(() => {});
+      bgMusic.play().catch(() => {
+        // Autoplay blocked
+      });
     }
 
     musicControl.addEventListener('click', () => {
@@ -92,8 +93,10 @@
       }
     });
 
+    // Start music on first user interaction to avoid autoplay block
     document.body.addEventListener('click', tryPlayMusic, { once: true });
 
+    // Your existing game code below
     const gameState = {
       clues: [],
       currentScene: 'intro',
@@ -148,7 +151,7 @@
         ]
       },
       mansionArrival: {
-        background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80")',
+        background: 'url("https://images.unsplash.com/photo-1679683171686-6242c0fde282?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
         dialogues: [
           "You arrive at the mansion. The eerie silence is unsettling.",
           "Partner: Where should we start?"
@@ -161,7 +164,7 @@
         ]
       },
       library: {
-        background: 'url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80")',
+        background: 'url("https://media.istockphoto.com/id/579731340/photo/journalists-writers-desk.webp?a=1&s=612x612&w=0&k=20&c=CGz_Jt6q_frwKQSK70fLQ1LEkkGlCI-jWvuQ1bhJqwI=")',
         dialogues: [
           "You find a torn page from the victim’s diary on the floor.",
           "Partner: Clue added: Torn Diary Page.",
@@ -174,7 +177,7 @@
         ]
       },
       deskDrawer: {
-        background: 'url("https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&w=800&q=80")',
+        background: 'url("https://i.pinimg.com/736x/57/20/4c/57204ce319da085fd84b917542c2c47e.jpg")',
         dialogues: [
           "You find a small locked box. It's locked tight.",
           "Partner: Maybe we can find a key elsewhere."
@@ -186,7 +189,7 @@
         ]
       },
       kitchen: {
-        background: 'url("https://images.unsplash.com/photo-1556911220-e15b29be8c40?auto=format&fit=crop&w=800&q=80")',
+        background: 'url("https://i.pinimg.com/736x/26/a9/9b/26a99b54bf70e7dfcb71b10389386ffc.jpg")',
         dialogues: [
           "You find a bloody knife in the sink.",
           "Partner: Clue added: Bloody Knife.",
@@ -238,7 +241,7 @@
         ]
       },
       mrsPeacock: {
-        background: 'url("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80")',
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "Mrs. Peacock: I was preparing dinner in the kitchen, saw nothing unusual.",
           "Partner: Do you want to interrogate Mrs. Peacock?"
@@ -249,7 +252,7 @@
         ]
       },
       garden: {
-        background: 'url("https://images.unsplash.com/photo-1529253355930-c33b2fe1b5a2?auto=format&fit=crop&w=800&q=80")',
+        background: 'url("https://ph.pinterest.com/pin/157344580725897224/")',
         dialogues: [
           "You find muddy footprints leading toward the shed.",
           "Partner: Clue added: Muddy Footprints.",
@@ -262,7 +265,7 @@
         ]
       },
       shed: {
-        background: 'url("https://images.unsplash.com/photo-1618221546414-218cde3fb7d2?auto=format&fit=crop&w=800&q=80")',
+        background: 'url("https://ph.pinterest.com/pin/610800768251056674/")',
         dialogues: [
           "Inside the shed you find a broken watch with initials 'M.V.'",
           "Partner: Clue added: Broken Watch.",
@@ -299,7 +302,7 @@
         ]
       },
       interrogatePeacock: {
-        background: 'url("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80")',
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "Mrs. Peacock: I was in the kitchen all night. You can ask the butler.",
           "Partner: Clue added: Peacock's Alibi.",
@@ -312,7 +315,7 @@
         ]
       },
       pressPeacock: {
-        background: 'url("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80")',
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80")',
         dialogues: [
           "Mrs. Peacock: I swear I know nothing! Please stop bothering me!",
           "Partner: Not much more from her.",
@@ -360,126 +363,114 @@
         ]
       },
       accuseResult: {
-        // handled below
+        background: '#111',
+        dialogues: [],
+        choices: []
       }
     };
 
-    const dialogueDiv = document.getElementById('dialogue');
-    const choicesDiv = document.getElementById('choices');
+    const dialogueElem = document.getElementById('dialogue');
+    const choicesElem = document.getElementById('choices');
 
-    function saveGame() {
-      localStorage.setItem('detectiveGameState', JSON.stringify(gameState));
-    }
+    let dialogueIndex = 0;
 
-    function loadGame() {
-      const saved = localStorage.getItem('detectiveGameState');
-      if (saved) {
-        Object.assign(gameState, JSON.parse(saved));
+    function setBackground(bg) {
+      if (bg.startsWith('url(')) {
+        document.body.style.backgroundImage = bg;
+        document.body.style.backgroundColor = '';
+      } else {
+        document.body.style.backgroundImage = '';
+        document.body.style.backgroundColor = bg;
       }
     }
 
-    let dialogueTimeouts = [];
-
-    function clearDialogueTimers() {
-      dialogueTimeouts.forEach(t => clearTimeout(t));
-      dialogueTimeouts = [];
+    function addClue(clue) {
+      if (clue && !gameState.clues.includes(clue)) {
+        gameState.clues.push(clue);
+      }
     }
 
     function showScene(sceneKey) {
-      gameState.currentScene = sceneKey;
-      saveGame();
-
       const scene = scenes[sceneKey];
       if (!scene) return;
 
-      if (scene.background) {
-        document.body.style.background = scene.background;
-      } else {
-        document.body.style.background = '#222';
+      gameState.currentScene = sceneKey;
+      dialogueIndex = 0;
+      setBackground(scene.background);
+
+      if (scene.clue) {
+        addClue(scene.clue);
       }
 
-      dialogueDiv.innerHTML = '';
-      choicesDiv.innerHTML = '';
-      clearDialogueTimers();
-
-      let idx = 0;
-      function showNextLine() {
-        if (idx < scene.dialogues.length) {
-          const p = document.createElement('p');
-          p.textContent = scene.dialogues[idx++];
-          dialogueDiv.appendChild(p);
-          dialogueTimeouts.push(setTimeout(showNextLine, 1500));
-        } else {
-          if (scene.clue && !gameState.clues.includes(scene.clue)) {
-            gameState.clues.push(scene.clue);
-            saveGame();
-          }
-          showChoices(scene.choices);
-        }
-      }
-
-      showNextLine();
+      renderDialogue(scene);
+      renderChoices(scene);
     }
 
-    function showChoices(choices) {
-      choicesDiv.innerHTML = '';
-      choices.forEach(choice => {
+    function renderDialogue(scene) {
+      if (dialogueIndex < scene.dialogues.length) {
+        dialogueElem.textContent = scene.dialogues[dialogueIndex];
+      } else {
+        dialogueElem.textContent = "";
+      }
+    }
+
+    function renderChoices(scene) {
+      choicesElem.innerHTML = "";
+      scene.choices.forEach(choice => {
         const btn = document.createElement('button');
         btn.textContent = choice.text;
         btn.onclick = () => {
-          if (choice.suspect) gameState.accused = choice.suspect;
-          if (choice.nextScene === 'accuseResult') showAccuseResult();
-          else showScene(choice.nextScene);
+          if (choice.nextScene === 'accuseResult') {
+            gameState.accused = choice.suspect;
+            showAccuseResult(choice.suspect);
+          } else {
+            showScene(choice.nextScene);
+          }
         };
-        choicesDiv.appendChild(btn);
+        choicesElem.appendChild(btn);
       });
     }
 
-    function showAccuseResult() {
-      dialogueDiv.innerHTML = '';
-      choicesDiv.innerHTML = '';
+    function showAccuseResult(suspect) {
+      dialogueIndex = 0;
+      const resultElem = dialogueElem;
+      const choicesElemLocal = choicesElem;
+      setBackground('#111');
 
-      const accused = gameState.accused;
-      const clues = gameState.clues;
-      let text = `You accused ${accused}.\n\n`;
+      // Determine if accusation is correct (let's say Colonel Mustard is culprit for example)
+      const culprit = 'Colonel Mustard';
 
-      if (
-        accused === "Ms. Violet" &&
-        clues.includes("Bloody Knife") &&
-        clues.includes("Broken Watch") &&
-        clues.includes("Violet threatened")
-      ) {
-        text += "That's correct! Ms. Violet is the culprit! You cracked the case! 🎉";
-      } else if (accused === "Colonel Mustard" && clues.includes("Mustard Argument")) {
-        text += "You caught Colonel Mustard arguing, but no solid proof. Case unsolved.";
-      } else if (accused === "Mrs. Peacock" && clues.includes("Peacock's Alibi")) {
-        text += "Peacock has a strong alibi. Wrong accusation.";
-      } else if (accused === "Mr. Green") {
-        text += "Mr. Green denies everything and you lack evidence. Wrong.";
+      if (suspect === culprit) {
+        resultElem.textContent = `You accused ${suspect}. Congratulations! You solved the case! It was indeed ${culprit}.`;
       } else {
-        text += "Your accusation doesn't fit. The culprit escapes.";
+        resultElem.textContent = `You accused ${suspect}. Unfortunately, that is incorrect. The real culprit was ${culprit}.`;
       }
 
-      text += `\n\nClues found:\n- ${clues.join("\n- ")}`;
-
-      text.split('\n').forEach(line => {
-        const p = document.createElement('p');
-        p.textContent = line;
-        dialogueDiv.appendChild(p);
-      });
+      choicesElemLocal.innerHTML = '';
 
       const restartBtn = document.createElement('button');
-      restartBtn.textContent = 'Restart Game';
+      restartBtn.textContent = 'Play Again';
       restartBtn.onclick = () => {
-        localStorage.removeItem('detectiveGameState');
-        location.reload();
+        gameState.clues = [];
+        gameState.accused = null;
+        showScene('intro');
       };
-      choicesDiv.appendChild(restartBtn);
+      choicesElemLocal.appendChild(restartBtn);
     }
 
-    loadGame();
-    showScene(gameState.currentScene);
-  </script>
+    // Add clicking to advance dialogue in scenes with multiple dialogues
+    dialogueElem.addEventListener('click', () => {
+      const scene = scenes[gameState.currentScene];
+      if (!scene) return;
 
+      if (dialogueIndex < scene.dialogues.length - 1) {
+        dialogueIndex++;
+        renderDialogue(scene);
+      }
+    });
+
+    // Start game
+    showScene('intro');
+  </script>
 </body>
 </html>
