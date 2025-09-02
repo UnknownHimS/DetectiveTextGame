@@ -165,7 +165,7 @@
     };
 
     const scenes = {
-            intro: {
+          intro: {
      
       dialogues: [
         "Creator: Please, if you're using a cellphone, kindly play in landscape mode,  Also, click the conversation box to proceed. If it doesn't proceed, well... that's just the end of it.",
@@ -869,134 +869,131 @@ rivalPress1: {
 
     }
 
-    const backgrounds = [
-        'url("https://i.pinimg.com/1200x/d0/ff/90/d0ff90173b50ad5eedb8e651fadabb20.jpg")',
-        'url("https://i.pinimg.com/1200x/2f/70/d1/2f70d18a8311af1350806ae98c0422f6.jpg")',
-        'url("https://i.pinimg.com/1200x/37/01/e8/3701e85fa7f6105eb0c0d383f51cf1ea.jpg")',
-        'url("https://i.pinimg.com/1200x/73/57/33/735733a37688a8257a897674992706fb.jpg")',
-        'url("https://i.pinimg.com/1200x/49/72/7d/49727d6cc75fcd21ebb76060b96e99fe.jpg")',
-        'url("https://i.pinimg.com/1200x/4c/32/e6/4c32e6d26429b2455e7cfbb17f470974.jpg")',
-        'url("https://i.pinimg.com/1200x/c8/51/f0/c851f0f0e82f41129c73232964fcf426.jpg")',
-        'url("https://i.pinimg.com/1200x/8d/e2/d6/8de2d60c8f5af4ab0f7513195fea61f2.jpg")',
-        'url("https://i.pinimg.com/1200x/0c/be/3e/0cbe3ebd69a194aaa1b229590dcbacdf.jpg")',
-        'url("https://i.pinimg.com/1200x/49/bd/8f/49bd8f66237affad60c73659743af687.jpg")'
-      ];
-    
-      let currentIndex = 0;
-    
-      function changeBackground() {
-        currentIndex = (currentIndex + 1) % backgrounds.length;
-        document.body.style.backgroundImage = backgrounds[currentIndex];
-      }
-    
-      // Initial background
-      document.body.style.backgroundImage = backgrounds[0];
-    
-     
-      setInterval(changeBackground, 20000);
+   const backgrounds = [
+  'url("https://i.pinimg.com/1200x/d0/ff/90/d0ff90173b50ad5eedb8e651fadabb20.jpg")',
+  'url("https://i.pinimg.com/1200x/2f/70/d1/2f70d18a8311af1350806ae98c0422f6.jpg")',
+  'url("https://i.pinimg.com/1200x/37/01/e8/3701e85fa7f6105eb0c0d383f51cf1ea.jpg")',
+  'url("https://i.pinimg.com/1200x/73/57/33/735733a37688a8257a897674992706fb.jpg")',
+  'url("https://i.pinimg.com/1200x/49/72/7d/49727d6cc75fcd21ebb76060b96e99fe.jpg")',
+  'url("https://i.pinimg.com/1200x/4c/32/e6/4c32e6d26429b2455e7cfbb17f470974.jpg")',
+  'url("https://i.pinimg.com/1200x/c8/51/f0/c851f0f0e82f41129c73232964fcf426.jpg")',
+  'url("https://i.pinimg.com/1200x/8d/e2/d6/8de2d60c8f5af4ab0f7513195fea61f2.jpg")',
+  'url("https://i.pinimg.com/1200x/0c/be/3e/0cbe3ebd69a194aaa1b229590dcbacdf.jpg")',
+  'url("https://i.pinimg.com/1200x/49/bd/8f/49bd8f66237affad60c73659743af687.jpg")'
+];
 
-    const dialogueElem = document.getElementById('dialogue');
-    const choicesElem = document.getElementById('choices');
+let currentIndex = 0;
 
-    let dialogueIndex = 0;
+function changeBackground() {
+  currentIndex = (currentIndex + 1) % backgrounds.length;
+  document.body.style.backgroundImage = backgrounds[currentIndex];
+}
 
-    function setBackground(bg) {
-      if (bg.startsWith('url(')) {
-        document.body.style.backgroundImage = bg;
-        document.body.style.backgroundColor = '';
+document.body.style.backgroundImage = backgrounds[0];
+setInterval(changeBackground, 20000);
+
+const dialogueElem = document.getElementById('dialogue');
+const choicesElem = document.getElementById('choices');
+
+let dialogueIndex = 0;
+
+function setBackground(bg) {
+  if (bg.startsWith('url(')) {
+    document.body.style.backgroundImage = bg;
+    document.body.style.backgroundColor = '';
+  } else {
+    document.body.style.backgroundImage = '';
+    document.body.style.backgroundColor = bg;
+  }
+}
+
+function addClue(clue) {
+  if (clue && !gameState.clues.includes(clue)) {
+    gameState.clues.push(clue);
+  }
+}
+
+function showScene(sceneKey) {
+  const scene = scenes[sceneKey];
+  if (!scene) return;
+
+  gameState.currentScene = sceneKey;
+  dialogueIndex = 0;
+
+  // Removed setBackground(scene.background) so background doesn't get overridden by scenes
+
+  if (scene.clue) {
+    addClue(scene.clue);
+  }
+
+  renderDialogue(scene);
+  renderChoices(scene);
+}
+
+function renderDialogue(scene) {
+  if (dialogueIndex < scene.dialogues.length) {
+    dialogueElem.textContent = scene.dialogues[dialogueIndex];
+  } else {
+    dialogueElem.textContent = "";
+  }
+}
+
+function renderChoices(scene) {
+  choicesElem.innerHTML = "";
+  scene.choices.forEach(choice => {
+    const btn = document.createElement('button');
+    btn.textContent = choice.text;
+    btn.onclick = () => {
+      if (choice.nextScene === 'accuseResult') {
+        gameState.accused = choice.suspect;
+        showAccuseResult(choice.suspect);
       } else {
-        document.body.style.backgroundImage = '';
-        document.body.style.backgroundColor = bg;
+        showScene(choice.nextScene);
       }
-    }
+    };
+    choicesElem.appendChild(btn);
+  });
+}
 
-    function addClue(clue) {
-      if (clue && !gameState.clues.includes(clue)) {
-        gameState.clues.push(clue);
-      }
-    }
+function showAccuseResult(suspect) {
+  dialogueIndex = 0;
+  const resultElem = dialogueElem;
+  const choicesElemLocal = choicesElem;
+  setBackground('#111');
 
-    function showScene(sceneKey) {
-      const scene = scenes[sceneKey];
-      if (!scene) return;
+  const culprit = 'Colonel Mustard';
 
-      gameState.currentScene = sceneKey;
-      dialogueIndex = 0;
-      setBackground(scene.background);
+  if (suspect === culprit) {
+    resultElem.textContent = `You accused ${suspect}. Congratulations! You solved the case! It was indeed ${culprit}.`;
+  } else {
+    resultElem.textContent = `You accused ${suspect}. Unfortunately, that is incorrect. The real culprit was ${culprit}.`;
+  }
 
-      if (scene.clue) {
-        addClue(scene.clue);
-      }
+  choicesElemLocal.innerHTML = '';
 
-      renderDialogue(scene);
-      renderChoices(scene);
-    }
+  const restartBtn = document.createElement('button');
+  restartBtn.textContent = 'Play Again';
+  restartBtn.onclick = () => {
+    gameState.clues = [];
+    gameState.accused = null;
+    showScene('comedyIntro');
+  };
+  choicesElemLocal.appendChild(restartBtn);
+}
 
-    function renderDialogue(scene) {
-      if (dialogueIndex < scene.dialogues.length) {
-        dialogueElem.textContent = scene.dialogues[dialogueIndex];
-      } else {
-        dialogueElem.textContent = "";
-      }
-    }
+dialogueElem.addEventListener('click', () => {
+  const scene = scenes[gameState.currentScene];
+  if (!scene) return;
 
-    function renderChoices(scene) {
-      choicesElem.innerHTML = "";
-      scene.choices.forEach(choice => {
-        const btn = document.createElement('button');
-        btn.textContent = choice.text;
-        btn.onclick = () => {
-          if (choice.nextScene === 'accuseResult') {
-            gameState.accused = choice.suspect;
-            showAccuseResult(choice.suspect);
-          } else {
-            showScene(choice.nextScene);
-          }
-        };
-        choicesElem.appendChild(btn);
-      });
-    }
+  if (dialogueIndex < scene.dialogues.length - 1) {
+    dialogueIndex++;
+    renderDialogue(scene);
+  }
+});
 
-    function showAccuseResult(suspect) {
-      dialogueIndex = 0;
-      const resultElem = dialogueElem;
-      const choicesElemLocal = choicesElem;
-      setBackground('#111');
+// Start game
+showScene('intro');
 
-      // Determine if accusation is correct (let's say Colonel Mustard is culprit for example)
-      const culprit = 'Colonel Mustard';
-
-      if (suspect === culprit) {
-        resultElem.textContent = `You accused ${suspect}. Congratulations! You solved the case! It was indeed ${culprit}.`;
-      } else {
-        resultElem.textContent = `You accused ${suspect}. Unfortunately, that is incorrect. The real culprit was ${culprit}.`;
-      }
-
-      choicesElemLocal.innerHTML = '';
-
-      const restartBtn = document.createElement('button');
-      restartBtn.textContent = 'Play Again';
-      restartBtn.onclick = () => {
-        gameState.clues = [];
-        gameState.accused = null;
-        showScene('comedyIntro');
-      };
-      choicesElemLocal.appendChild(restartBtn);
-    }
-
-    // Add clicking to advance dialogue in scenes with multiple dialogues
-    dialogueElem.addEventListener('click', () => {
-      const scene = scenes[gameState.currentScene];
-      if (!scene) return;
-
-      if (dialogueIndex < scene.dialogues.length - 1) {
-        dialogueIndex++;
-        renderDialogue(scene);
-      }
-    });
-
-    // Start game
-    showScene('intro');
   </script>
 </body>
 </html>
