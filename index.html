@@ -450,6 +450,361 @@
       ]
     },
 
+      accuseMelody: {
+  background: '#552233',
+  dialogues: [
+    "Mr. Detective: Melody, you wanted the spotlight so badly, you killed Vincent to get it.",
+    "Melody: How *dare* you! I’m an artist, not a murderer!",
+    "Partner: Uh, her tear just landed on my popcorn.",
+    "Mr. Detective: The torn costume and her fight were just distractions. You used the fake scene to cover your real plan.",
+    "Enma: But she’s so dramatic... I kinda believe her.",
+    "Mr. Detective: Sorry, Enma. This is detective work, not a soap opera.",
+    "Melody: You’ll regret this!",
+    "Partner: Regret? She just lost the best part in the next play.",
+    "Mr. Detective: Guards, take her away."
+  ],
+  choices: [
+    { text: "Case closed — good job!", nextScene: "romanceVictory1" },
+    { text: "Double check Brick", nextScene: "accuseBrick" },
+    { text: "Double check Oscar", nextScene: "accuseOscar" }
+  ]
+},
+
+accuseBrick: {
+  background: '#334422',
+  dialogues: [
+    "Mr. Detective: Brick, your rage got the better of you. You killed Vincent in a jealous fury.",
+    "Brick: I was mad, sure! But kill him? Nah, I’m more of a hammer guy than a knife guy.",
+    "Partner: Hammer guy? What does that even mean?",
+    "Mr. Detective: The real knife came from backstage, where you spend most of your time.",
+    "Enma: And the hidden diary mentioned a trap... You were the only one with the access to set it up.",
+    "Brick: Fine, you got me. But only because I’m tired of that understudy stealing my lunch!",
+    "Partner: And the murder?",
+    "Brick: That was Melody’s idea! I swear!",
+    "Mr. Detective: We’ll see about that."
+  ],
+  choices: [
+    { text: "Case closed — good job!", nextScene: "romanceVictory2" },
+    { text: "Double check Melody", nextScene: "accuseMelody" },
+    { text: "Double check Oscar", nextScene: "accuseOscar" }
+  ]
+},
+
+accuseOscar: {
+  background: '#223344',
+  dialogues: [
+    "Mr. Detective: Oscar, you snapped. Jealousy and anger drove you to murder.",
+    "Oscar: No! I was rehearsing! The prop knife was a spoon, I swear!",
+    "Partner: Then why was your costume torn and bloody?",
+    "Enma: Because you panicked after finding out about the fake murder scene.",
+    "Mr. Detective: The diary said Vincent planned to test his suspects. You were scared you’d be caught.",
+    "Oscar: It’s true! But I didn’t mean to kill him!",
+    "Partner: So you admit to being in the wrong place at the wrong time?",
+    "Oscar: Exactly!",
+    "Mr. Detective: We’ll figure this out in court."
+  ],
+  choices: [
+    { text: "Case closed — good job!", nextScene: "romanceVictory3" },
+    { text: "Double check Melody", nextScene: "accuseMelody" },
+    { text: "Double check Brick", nextScene: "accuseBrick" }
+  ]
+},
+
+  romanceVictory1: {
+    background: '#551122',
+    dialogues: [
+      "Enma: Mr. Detective, you did it again. Smart, sharp, and slightly terrifying.",
+      "Partner: I think I saw Mr. Detective blush. Did anyone else see that?",
+      "Mr. Detective: Focus, please. We solved the case.",
+      "Enma: Now... about that coffee date.",
+      "Mr. Detective: You’re on. But I’m picking the place.",
+      "Partner: Can I come? I’ll bring popcorn!"
+    ],
+    choices: [
+      { text: "Play again", nextScene: "intro2" }
+    ]
+  },
+  
+  romanceVictory2: {
+    background: '#334422',
+    dialogues: [
+      "Enma: Brick might be rough around the edges, but you caught the truth, Mr. Detective.",
+      "Partner: So... no more fights over sandwiches at work?",
+      "Mr. Detective: Let’s just say this case solved some deeper issues.",
+      "Enma: Like us working better as a team.",
+      "Mr. Detective: And maybe dinner later?",
+      "Enma: I’m holding you to that.",
+      "Partner: I’ll bring the popcorn... again."
+    ],
+    choices: [
+      { text: "Play again", nextScene: "intro2" }
+    ]
+  },
+  
+  romanceVictory3: {
+    background: '#223344',
+    dialogues: [
+      "Enma: Oscar might be innocent at heart, but you saw the signs, Mr. Detective.",
+      "Partner: Quiet types always have secrets.",
+      "Mr. Detective: And sometimes, those secrets are deadly.",
+      "Enma: You deserve a break — and maybe a kiss for good luck.",
+      "Mr. Detective: Only if you promise not to use it as leverage.",
+      "Partner: Uh-oh. I think they just had a moment.",
+      "Enma: Shhh! I’ll take that as a yes."
+    ],
+    choices: [
+      { text: "Play again", nextScene: "intro2" }
+    ]
+  },
+  
+  intro2: {
+    background: '#1e1e2f',
+    dialogues: [
+      "Creator: Welcome back! Ready for another case, Mr. Detective?",
+      "Partner: Don’t mess it up this time!",
+      "Enma: Or I’ll have to save you again.",
+      "Mr. Detective: Let’s get to work.",
+      "Partner: Wait, do we get popcorn again?"
+    ],
+    choices: [
+      { text: "Start new case", nextScene: "newCase1" }
+    ]
+  },
+   newCase1: {
+  background: '#2f2f44',
+  dialogues: [
+    "Partner: Alright Mr. Detective, another day, another mess.",
+    "Enma: And another chance for me to keep you alive.",
+    "Mr. Detective: I’m counting on you both. So, what’s the scoop?",
+    "Partner: A famous jewel, 'The Sapphire Siren,' vanished during a gala.",
+    "Enma: And the prime suspects? A jealous ex, a sneaky rival, and a mysterious stranger.",
+    "Mr. Detective: Classic. Let’s get to work before the culprit slips away.",
+    "Partner: Popcorn ready. Just say the word."
+  ],
+  choices: [
+    { text: "Investigate the gala hall", nextScene: "galaHall1" },
+    { text: "Interview the suspects", nextScene: "suspectInterview1" }
+  ]
+},
+
+galaHall1: {
+  background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+  dialogues: [
+    "You arrive at the grand gala hall. Glittering lights and expensive gowns everywhere.",
+    "Partner: Fancy place. Fancy people. Fancy problems.",
+    "Mr. Detective: Keep your eyes open. Anything out of place?",
+    "Enma: That waiter is suspiciously nervous. Or maybe it’s just the tuxedo.",
+    "Partner: Nervous waiters = prime suspects. Note that down.",
+    "Mr. Detective: Let's look closer."
+  ],
+  choices: [
+    { text: "Talk to the waiter", nextScene: "waiterTalk1" },
+    { text: "Inspect the display case", nextScene: "displayCase1" }
+  ]
+},
+
+suspectInterview1: {
+  background: '#3b2f42',
+  dialogues: [
+    "You gather the suspects in the lounge.",
+    "Partner: Cue the dramatic music.",
+    "Jealous Ex: I’d never steal! But he deserved to lose everything.",
+    "Sneaky Rival: I was busy attending other parties. Besides, why target a sapphire?",
+    "Mysterious Stranger: ...I prefer to remain anonymous.",
+    "Enma: Mysterious much? I like the challenge.",
+    "Mr. Detective: Let’s see who’s hiding the truth."
+  ],
+  choices: [
+    { text: "Press the Jealous Ex", nextScene: "exPress1" },
+    { text: "Press the Rival", nextScene: "rivalPress1" },
+    { text: "Press the Stranger", nextScene: "strangerPress1" }
+  ]
+},
+
+waiterTalk1: {
+  background: '#2f2f3f',
+  dialogues: [
+    "Waiter: I was just doing my job! Nervous? Maybe a little, it’s a big event.",
+    "Partner: Spill it, mister. Seen anything weird?",
+    "Waiter: There was a shadow near the jewel case just before the siren vanished.",
+    "Enma: Shadow or the sneaky stranger?",
+    "Mr. Detective: Good lead. Thanks.",
+    "Partner: Maybe he’s the star of the next mystery!"
+  ],
+  choices: [
+    { text: "Inspect the display case", nextScene: "displayCase1" },
+    { text: "Interview suspects", nextScene: "suspectInterview1" }
+  ]
+},
+
+displayCase1: {
+  background: 'url("https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=870&q=80")',
+  dialogues: [
+    "The display case is empty but pristine. No signs of forced entry.",
+    "Partner: Hmmm... maybe a magician pulled a trick?",
+    "Mr. Detective: Or someone with a key and nerves of steel.",
+    "Enma: There’s a tiny scratch here. Looks recent.",
+    "Partner: Scratch + no forced entry = inside job.",
+    "Mr. Detective: Let’s keep digging."
+  ],
+  choices: [
+    { text: "Press the Jealous Ex", nextScene: "exPress1" },
+    { text: "Press the Rival", nextScene: "rivalPress1" },
+    { text: "Press the Stranger", nextScene: "strangerPress1" }
+  ]
+},
+
+exPress1: {
+  background: '#4a2f3e',
+  dialogues: [
+    "Mr. Detective: You hated the victim, didn’t you? Jealousy’s a strong motive.",
+    "Jealous Ex: Maybe. But stealing? That’s low, even for me.",
+    "Partner: Sounds like a ‘maybe’ to me.",
+    "Enma: You sure you weren’t near the display?",
+    "Jealous Ex: I was chatting with some friends. Ask them.",
+    "Mr. Detective: We will."
+  ],
+  choices: [
+    { text: "Check alibi", nextScene: "exAlibi1" },
+    { text: "Press harder", nextScene: "exPress2" }
+  ]
+},
+
+rivalPress1: {
+  background: '#3e4a3e',
+  dialogues: [
+    "Mr. Detective: You’re known for underhanded moves. Care to explain?",
+    "Sneaky Rival: I deal in art, not theft. Besides, the sapphire isn’t worth my time.",
+    "Partner: Spoken like a true rival.",
+    "Enma: Or a very good liar.",
+    "Mr. Detective: We’ll see."
+  ],
+  choices: [
+    { text: "Check alibi", nextScene: "rivalAlibi1" },
+    { text: "Press harder", nextScene: "rivalPress2" }
+  ]
+},
+    
+    strangerPress1: {
+      background: '#2f3e4a',
+      dialogues: [
+        "Mr. Detective: You won’t even give your name. That’s suspicious.",
+        "Mysterious Stranger: Names are for friends and foes. I’m neither.",
+        "Partner: Could be the perfect hiding spot.",
+        "Enma: Or just a drama queen.",
+        "Mr. Detective: Either way, we’ll uncover the truth."
+      ],
+      choices: [
+        { text: "Check alibi", nextScene: "strangerAlibi1" },
+        { text: "Press harder", nextScene: "strangerPress2" }
+      ]
+    },
+    
+    exAlibi1: {
+      background: '#5a3e4a',
+      dialogues: [
+        "Friends confirm the Jealous Ex was with them during the theft.",
+        "Partner: Looks like an alibi to me.",
+        "Mr. Detective: For now. But appearances can deceive.",
+        "Enma: Keep that in mind."
+      ],
+      choices: [
+        { text: "Interview Rival", nextScene: "rivalPress1" },
+        { text: "Interview Stranger", nextScene: "strangerPress1" }
+      ]
+    },
+    
+    exPress2: {
+      background: '#4a2f3e',
+      dialogues: [
+        "Mr. Detective: You’re lying. We have evidence you slipped away.",
+        "Jealous Ex: Fine! I admit I was close to the display, but I didn’t touch the jewel!",
+        "Partner: Close counts... sometimes.",
+        "Enma: The truth is closer than we think."
+      ],
+      choices: [
+        { text: "Interview Rival", nextScene: "rivalPress1" },
+        { text: "Interview Stranger", nextScene: "strangerPress1" }
+      ]
+    },
+    
+    rivalAlibi1: {
+      background: '#3e4a3e',
+      dialogues: [
+        "Rival’s alibi: He was at the bar, seen by many.",
+        "Partner: A lot of witnesses, or a lot of actors?",
+        "Mr. Detective: We'll find out.",
+        "Enma: Let’s keep pushing."
+      ],
+      choices: [
+        { text: "Interview Jealous Ex", nextScene: "exPress1" },
+        { text: "Interview Stranger", nextScene: "strangerPress1" }
+      ]
+    },
+    
+    rivalPress2: {
+      background: '#3e4a3e',
+      dialogues: [
+        "Mr. Detective: We caught you sneaking backstage.",
+        "Sneaky Rival: Okay, guilty. But I was only looking for dirt, not jewels.",
+        "Partner: Dirt can be deadly too.",
+        "Enma: Maybe the jewel thief is someone else."
+      ],
+      choices: [
+        { text: "Interview Jealous Ex", nextScene: "exPress1" },
+        { text: "Interview Stranger", nextScene: "strangerPress1" }
+      ]
+    },
+    
+    strangerAlibi1: {
+      background: '#2f3e4a',
+      dialogues: [
+        "Stranger: I was at the balcony, admiring the stars.",
+        "Partner: Romantic... or convenient?",
+        "Mr. Detective: Let’s see if anyone can confirm.",
+        "Enma: Stay sharp."
+      ],
+      choices: [
+        { text: "Interview Jealous Ex", nextScene: "exPress1" },
+        { text: "Interview Rival", nextScene: "rivalPress1" }
+      ]
+    },
+    
+    strangerPress2: {
+      background: '#2f3e4a',
+      dialogues: [
+        "Mr. Detective: Why the mystery? What are you hiding?",
+        "Mysterious Stranger: Let’s just say... I have reasons.",
+        "Partner: Reasons or excuses?",
+        "Enma: Mr. Detective, time to connect the dots."
+      ],
+      choices: [
+        { text: "Inspect gala hall again", nextScene: "galaHall1" },
+        { text: "Review clues", nextScene: "reviewClues2" }
+      ]
+    },
+    
+    reviewClues2: {
+      background: '#1e1e2f',
+      dialogues: [
+        "You gather the clues:",
+        "- No forced entry.",
+        "- Suspicious waiter.",
+        "- Jealous ex’s shaky alibi.",
+        "- Rival’s backstage sneaking.",
+        "- Stranger’s mystery.",
+        "Partner: Who’s the Sapphire Siren’s thief?",
+        "Enma: Let’s not jump to conclusions.",
+        "Mr. Detective: Time for a decision."
+      ],
+      choices: [
+        { text: "Accuse Jealous Ex", nextScene: "accuseEx1" },
+        { text: "Accuse Rival", nextScene: "accuseRival1" },
+        { text: "Accuse Stranger", nextScene: "accuseStranger1" }
+      ]
+    },
+
+
     }
 
     const dialogueElem = document.getElementById('dialogue');
