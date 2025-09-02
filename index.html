@@ -15,7 +15,7 @@
     border-radius: 10px;
     background-color: #222;
     box-shadow: 0 0 15px #000;
-    transition: background 1s ease;
+     transition: background-image 1s ease-in-out;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -869,6 +869,32 @@ rivalPress1: {
 
 
     }
+
+    const backgrounds = [
+        'url("https://i.pinimg.com/1200x/18/68/09/1868093c558408a44bd5f2857baeddda.jpg")',
+        'url("https://i.pinimg.com/1200x/23/34/b7/2334b71318fe383976606d1c999df9e0.jpg")',
+        'url("https://i.pinimg.com/1200x/37/01/e8/3701e85fa7f6105eb0c0d383f51cf1ea.jpg")',
+        'url("https://i.pinimg.com/1200x/73/57/33/735733a37688a8257a897674992706fb.jpg")',
+        'url("https://i.pinimg.com/1200x/49/72/7d/49727d6cc75fcd21ebb76060b96e99fe.jpg")',
+        'url("https://i.pinimg.com/1200x/4c/32/e6/4c32e6d26429b2455e7cfbb17f470974.jpg")',
+        'url("https://i.pinimg.com/1200x/c8/51/f0/c851f0f0e82f41129c73232964fcf426.jpg")',
+        'url("https://i.pinimg.com/1200x/8d/e2/d6/8de2d60c8f5af4ab0f7513195fea61f2.jpg")',
+        'url("https://i.pinimg.com/1200x/0c/be/3e/0cbe3ebd69a194aaa1b229590dcbacdf.jpg")',
+        'url("https://i.pinimg.com/1200x/49/bd/8f/49bd8f66237affad60c73659743af687.jpg")'
+      ];
+    
+      let currentIndex = 0;
+    
+      function changeBackground() {
+        currentIndex = (currentIndex + 1) % backgrounds.length;
+        document.body.style.backgroundImage = backgrounds[currentIndex];
+      }
+    
+      // Initial background
+      document.body.style.backgroundImage = backgrounds[0];
+    
+      // Change background every 10 seconds (10000 ms)
+      setInterval(changeBackground, 10000);
 
     const dialogueElem = document.getElementById('dialogue');
     const choicesElem = document.getElementById('choices');
