@@ -367,6 +367,328 @@
         dialogues: [],
         choices: []
       }
+       comedyIntro: {
+        background: '#222',
+        dialogues: [
+          "Partner: Hey, you sound half asleep... Did the last case tire you out?",
+          "You: Haha, yeah... that one was a real brain bender.",
+          "Partner: Well, get ready! I’m starting the car.",
+          "You: Wait, why do we even have cases again? Can’t we take a day off?",
+          "Partner: Ha! You can try running, but where do you think you’ll go?",
+          "You: ...Fine, let’s go then."
+        ],
+        choices: [
+          { text: "Start New Case", nextScene: "newCaseIntro" }
+        ]
+      },
+    
+      newCaseIntro: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "You arrive at the new crime scene — a bustling city alley with a twist.",
+          "Partner: This one’s going to be tricky. Are you ready?"
+        ],
+        choices: [
+          { text: "Start Investigation", nextScene: "alleyScene" }
+        ]
+      },
+    
+      alleyScene: {
+        background: 'url("https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "You look around the alley. Trash cans overturned, mysterious footprints.",
+          "Partner: Looks like someone was in a hurry. What do you want to do?"
+        ],
+        choices: [
+          { text: "Inspect footprints", nextScene: "footprints" },
+          { text: "Check the trash cans", nextScene: "trashCans" },
+          { text: "Talk to the nearby witness", nextScene: "witness" }
+        ]
+      },
+    
+      footprints: {
+        background: 'url("https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "The footprints seem fresh, leading towards the back entrance of a nearby building.",
+          "Partner: Clue added: Fresh Footprints."
+        ],
+        clue: "Fresh Footprints",
+        choices: [
+          { text: "Follow footprints", nextScene: "backEntrance" },
+          { text: "Go back", nextScene: "alleyScene" }
+        ]
+      },
+    
+      trashCans: {
+        background: 'url("https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "You rummage through the trash cans and find a torn piece of fabric.",
+          "Partner: Clue added: Torn Fabric."
+        ],
+        clue: "Torn Fabric",
+        choices: [
+          { text: "Take fabric to analyze later", nextScene: "alleyScene" }
+        ]
+      },
+    
+      witness: {
+        background: 'url("https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "The witness nervously mentions seeing a shadowy figure running away.",
+          "Partner: Clue added: Shadowy Figure Witnessed."
+        ],
+        clue: "Shadowy Figure Witnessed",
+        choices: [
+          { text: "Ask more questions", nextScene: "witnessQuestions" },
+          { text: "Return to alley", nextScene: "alleyScene" }
+        ]
+      },
+    
+      witnessQuestions: {
+        background: 'url("https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "Witness: They were wearing a hoodie and moved really fast.",
+          "Partner: Could be important. We need to find out who it was."
+        ],
+        choices: [
+          { text: "Go check the back entrance", nextScene: "backEntrance" },
+          { text: "Return to alley", nextScene: "alleyScene" }
+        ]
+      },
+    
+      backEntrance: {
+        background: 'url("https://images.unsplash.com/photo-1526403226437-cfcdf5626899?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "You arrive at the back entrance. The door is slightly ajar.",
+          "Partner: Should we go in?"
+        ],
+        choices: [
+          { text: "Enter the building", nextScene: "insideBuilding" },
+          { text: "Go back", nextScene: "alleyScene" }
+        ]
+      },
+    
+      insideBuilding: {
+        background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "Inside, you see overturned furniture and a broken vase.",
+          "Partner: Looks like a struggle happened here. Clue added: Signs of Struggle."
+        ],
+        clue: "Signs of Struggle",
+        choices: [
+          { text: "Search the room", nextScene: "searchRoom" },
+          { text: "Return outside", nextScene: "backEntrance" }
+        ]
+      },
+    
+      searchRoom: {
+        background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "You find a hidden note under the table with a strange symbol.",
+          "Partner: Clue added: Strange Symbol Note."
+        ],
+        clue: "Strange Symbol Note",
+        choices: [
+          { text: "Take note for analysis", nextScene: "insideBuilding" },
+          { text: "Return outside", nextScene: "backEntrance" }
+        ]
+      },
+    
+      analyzeClues: {
+        background: '#111',
+        dialogues: [
+          "You spread out your clues and start piecing things together.",
+          "Partner: We have: Torn Fabric, Fresh Footprints, Shadowy Figure Witnessed, Signs of Struggle, and Strange Symbol Note.",
+          "You: Something tells me these are connected."
+        ],
+        choices: [
+          { text: "Go back to the alley", nextScene: "alleyScene" },
+          { text: "Visit the lab to analyze fabric", nextScene: "labScene" },
+          { text: "Head to local informant", nextScene: "informantScene" }
+        ]
+      },
+    
+      labScene: {
+        background: 'url("https://images.unsplash.com/photo-1554475901-4538ddfbccc2?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "At the lab, technicians examine the torn fabric under the microscope.",
+          "Technician: This fabric matches a rare brand only sold in one store downtown."
+        ],
+        clue: "Rare Brand Fabric",
+        choices: [
+          { text: "Go visit the store", nextScene: "storeScene" },
+          { text: "Return to analysis", nextScene: "analyzeClues" }
+        ]
+      },
+    
+      storeScene: {
+        background: 'url("https://images.unsplash.com/photo-1508898578281-774ac4893a83?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "The store owner recognizes the fabric and mentions a recent suspicious customer.",
+          "Store Owner: He was wearing a hoodie, came in looking nervous."
+        ],
+        clue: "Hoodie Suspicious Customer",
+        choices: [
+          { text: "Ask about the customer's name", nextScene: "storeOwnerQuestions" },
+          { text: "Return to analysis", nextScene: "analyzeClues" }
+        ]
+      },
+    
+      storeOwnerQuestions: {
+        background: 'url("https://images.unsplash.com/photo-1508898578281-774ac4893a83?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "Store Owner: Sorry, I didn’t catch his name, but he paid in cash and left fast.",
+          "Partner: Not much to go on. Let's keep digging."
+        ],
+        choices: [
+          { text: "Return to analysis", nextScene: "analyzeClues" }
+        ]
+      },
+    
+      informantScene: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "Your informant greets you in a dimly lit bar.",
+          "Informant: I heard whispers about a gang using strange symbols to mark territory.",
+          "Partner: Could that be related to the strange symbol note?"
+        ],
+        clue: "Gang Symbol Connection",
+        choices: [
+          { text: "Ask about gang members", nextScene: "gangInfo" },
+          { text: "Return to analysis", nextScene: "analyzeClues" }
+        ]
+      },
+    
+      gangInfo: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "Informant: The gang’s leader is called 'The Hooded One'.",
+          "Partner: Fits the hoodie clue. This is getting interesting."
+        ],
+        choices: [
+          { text: "Look for 'The Hooded One'", nextScene: "hoodedOneScene" },
+          { text: "Return to analysis", nextScene: "analyzeClues" }
+        ]
+      },
+    
+      hoodedOneScene: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "You track down a suspicious figure matching the description near the docks.",
+          "Partner: There he is... The Hooded One."
+        ],
+        choices: [
+          { text: "Confront him", nextScene: "confrontation" },
+          { text: "Observe quietly", nextScene: "observe" }
+        ]
+      },
+    
+      confrontation: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "You confront the hooded figure. He pulls down his hood revealing... it’s the store owner!",
+          "Partner: What?! That can’t be right."
+        ],
+        choices: [
+          { text: "Accuse store owner", nextScene: "accuseStoreOwner" },
+          { text: "Keep investigating", nextScene: "analyzeClues" }
+        ]
+      },
+    
+      accuseStoreOwner: {
+        background: '#800000',
+        dialogues: [
+          "You accuse the store owner of being involved in the crime.",
+          "Store Owner: I swear I didn’t do anything! It’s not what it looks like!",
+          "Partner: We need more proof."
+        ],
+        choices: [
+          { text: "Return to analysis", nextScene: "analyzeClues" }
+        ]
+      },
+    
+      observe: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "You observe quietly and notice the hooded figure slipping something into a locker.",
+          "Partner: Let’s check that locker."
+        ],
+        choices: [
+          { text: "Open locker", nextScene: "lockerScene" },
+          { text: "Follow figure further", nextScene: "followFigure" }
+        ]
+      },
+    
+      lockerScene: {
+        background: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "Inside the locker, you find stolen goods and evidence linking the store owner to the crime.",
+          "Partner: This is the proof we need!"
+        ],
+        clue: "Locker Evidence",
+        choices: [
+          { text: "Arrest store owner", nextScene: "caseSolved" },
+          { text: "Keep investigating", nextScene: "analyzeClues" }
+        ]
+      },
+    
+      followFigure: {
+        background: 'url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "You follow the hooded figure to an abandoned warehouse.",
+          "Partner: Looks like the gang's hideout."
+        ],
+        choices: [
+          { text: "Enter warehouse", nextScene: "warehouseScene" },
+          { text: "Call for backup", nextScene: "callBackup" }
+        ]
+      },
+    
+      warehouseScene: {
+        background: 'url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=870&q=80")',
+        dialogues: [
+          "Inside the warehouse, you find gang members counting stolen goods.",
+          "Partner: We caught them red-handed!"
+        ],
+        choices: [
+          { text: "Arrest gang members", nextScene: "caseSolved" },
+          { text: "Try to gather more evidence", nextScene: "gatherEvidence" }
+        ]
+      },
+    
+      callBackup: {
+        background: '#333',
+        dialogues: [
+          "You call for backup. Police reinforcements arrive quickly.",
+          "Partner: Time to make the arrests!"
+        ],
+        choices: [
+          { text: "Arrest gang members", nextScene: "caseSolved" }
+        ]
+      },
+    
+      gatherEvidence: {
+        background: '#222',
+        dialogues: [
+          "You find a ledger listing all stolen items and gang members.",
+          "Partner: This will make the case airtight."
+        ],
+        clue: "Gang Ledger",
+        choices: [
+          { text: "Take ledger and arrest", nextScene: "caseSolved" }
+        ]
+      },
+    
+      caseSolved: {
+        background: '#004400',
+        dialogues: [
+          "The case is closed! The gang is behind bars and the mystery solved.",
+          "Partner: Nice work, detective. Ready for the next case?"
+        ],
+        choices: [
+          { text: "Restart Game", nextScene: "comedyIntro" }
+        ]
+      }
     };
 
     const dialogueElem = document.getElementById('dialogue');
