@@ -165,6 +165,225 @@
     };
 
     const scenes = {
+          sceneStart: {
+      dialogues: [
+        "Creator: Please, if you're using a cellphone, kindly play in landscape mode,  Also, click the conversation box to proceed. If it doesn't proceed, well... that's just the end of it.",
+        "Creator: Hope you enjoy the game !",
+        "Partner: hey what now?",
+        "Mr. Detective: there's a report from nearby — they say it's murder.",
+        "Partner: nahh, I want to sleep. We just got off from a previous case. I'm still sleepy.",
+        "Mr. Detective: okay, I might tell our boss to do it.",
+        "Mr. Detective proceeds to go outside.",
+        "Partner: wait! Wait for me, I'm coming!",
+        "Mr. Detective starts the car when suddenly he sees someone being harassed — the girl, Enma.",
+        "Mr. Detective quickly goes and saves the girl.",
+        "Mr. Detective: how much?",
+        "Enma: you?! How did—",
+        "Mr. Detective: stand back!",
+        "Loan Sharks: who do you think you are? That girl’s got debt with us!",
+        "Mr. Detective: the law is not built that way.",
+        "Enma: right! Why are you harassing me? I don't have the money right now. I promised to pay.",
+        "Mr. Detective: how much did you loan?",
+        "Enma: about 200 million... hehe.",
+        "Mr. Detective: what? WHY?",
+        "Loan Sharks: yes, and the interest is 30 percent!",
+        "Enma: I had to... don't ask anymore.",
+        "Loan Sharks: grabs the detective — now that you know, back off!",
+        "Mr. Detective grabs the thug’s hand and fights them all — quickly defeating them.",
+        "Enma suddenly hugs the detective, and he’s shocked.",
+        "Mr. Detective: what do you think you're doing? Don't grab me.",
+        "Enma: thank youuuu! *while crying*",
+        "Mr. Detective gets distracted — one of the loan sharks pulls a gun.",
+        "Partner shoots the gun out of the thug’s hand, saving him.",
+        "Partner: what do you think you're doing? This isn't like you. I told you to wait for me! Who is she?",
+        "Mr. Detective: the debtor.",
+        "Partner: what? Hahaha! Poor girl. Sorry, we don’t run a charity here.",
+        "Mr. Detective: *gives business card* Call me if they come back again.",
+        "Partner: what is this? Do you like the girl?",
+        "Mr. Detective: did you forget our profession?",
+        "Enma: *glares at the partner*",
+        "Partner: ohh... she’s fierce.",
+        "Mr. Detective: I could call the police now and have them detained — but you’ll get caught too, so I won’t do it."
+      ],
+      choices: [
+        { text: "Take Enma home", nextScene: "homeRide4" },
+        { text: "Interrogate the Loan Sharks", nextScene: "interrogate4" }
+      ]
+    },
+    
+    homeRide4: {
+      dialogues: [
+        "Enma: So... you’re a detective and a part-time superhero now?",
+        "Mr. Detective: Only on weekends. On weekdays, I just dodge paperwork.",
+        "Enma: I can’t believe you remembered me.",
+        "Mr. Detective: I didn’t. I just remember people who owe 200 million yen.",
+        "Enma: Wow. Rude.",
+        "Partner: (from the back seat) You two flirting or filing a report?",
+        "Mr. Detective: You wanted sleep, remember?",
+        "Partner: Yeah, but this is better than a soap opera.",
+        "Enma: I'm not part of your episode.",
+        "Partner: You are now. Welcome to 'Detective & Debtor: Crime & Cuddles'.",
+        "Mr. Detective: *sighs* I regret everything.",
+        "Enma: You’ll regret more if I don’t get home safe.",
+        "Partner: She’s sassy. I like her."
+      ],
+      choices: [
+        { text: "Drop her off silently", nextScene: "awkwardDrop4" },
+        { text: "Ask her about the loan", nextScene: "loanStory4" }
+      ]
+    },
+    
+    loanStory4: {
+      dialogues: [
+        "Mr. Detective: Why 200 million? That’s not a small debt. That’s... anime villain money.",
+        "Enma: I needed it to save my family business... and maybe also buy a limited-edition Detective Conan watch.",
+        "Partner: Priorities! I love it.",
+        "Mr. Detective: You’re unbelievable.",
+        "Enma: You’re just mad I got the watch and not you.",
+        "Mr. Detective: ...what color?",
+        "Enma: Midnight noir. Limited to 50 pieces.",
+        "Mr. Detective: Dammit.",
+        "Partner: Can we focus? This is not a Watch Collectors Club.",
+        "Mr. Detective: Sorry. Professionalism.",
+        "Enma: Thanks again... really. I don’t know what I would’ve done.",
+        "Mr. Detective: You’d probably be kidnapped, auctioned online, and I’d have to rescue you again.",
+        "Enma: Sounds romantic.",
+        "Partner: Sounds like a lawsuit."
+      ],
+      choices: [
+        { text: "Let Enma stay at your place for safety", nextScene: "detectiveHome4" },
+        { text: "Send her to a safe house", nextScene: "safeHouse4" }
+      ]
+    },
+    
+    detectiveHome4: {
+      dialogues: [
+        "Enma: So this is where the magic happens?",
+        "Mr. Detective: It’s where the unpaid bills and ramen magic happens.",
+        "Partner: I call dibs on the couch.",
+        "Enma: Wait, are you living with your partner?",
+        "Mr. Detective: It’s cheaper than therapy.",
+        "Partner: Also louder. He screams in his sleep. Like a banshee.",
+        "Mr. Detective: Shut up.",
+        "Enma: He does look like someone who cries during shampoo commercials.",
+        "Partner: Oh my , she’s perfect.",
+        "Mr. Detective: I regret saving both of you.",
+        "Enma: Well... thank you. For everything.",
+        "Mr. Detective: Yeah... just don’t fall in love with me, okay?",
+        "Enma: ...Too late."
+      ],
+      choices: [
+        { text: "Pretend you didn’t hear that", nextScene: "caseReport4" },
+        { text: "Blush and change subject", nextScene: "caseReport5" }
+      ]
+    },
+    
+    caseReport4: {
+      dialogues: [
+        "Partner: Incoming case report, boss.",
+        "Mr. Detective: That was fast.",
+        "Partner: They found a body in the theatre — you know, the one with the cursed stage.",
+        "Enma: Cursed stage?",
+        "Partner: Yeah, every show that opens there closes in a week. And now someone died.",
+        "Mr. Detective: Well, that’s one way to close the curtain.",
+        "Partner: No signs of forced entry. Blood on the curtain.",
+        "Enma: That’s a little too theatrical.",
+        "Mr. Detective: Looks like our date night’s moving to Act One: Murder Mystery."
+      ],
+      choices: [
+        { text: "Go to the theatre now", nextScene: "theatreArrival4" },
+        { text: "Review theatre security footage", nextScene: "securityReview4" }
+      ]
+    },
+    
+    theatreArrival4: {
+      dialogues: [
+        "Partner: Smells like old popcorn and fresh blood.",
+        "Mr. Detective: My favorite combination.",
+        "Enma: You two are terrifying.",
+        "Partner: Curtain's soaked. Looks like the victim was on stage.",
+        "Mr. Detective: No drag marks. They died right there.",
+        "Partner: There’s a rose on the body.",
+        "Mr. Detective: A message, or dramatic flair?",
+        "Partner: Both. Killer might’ve been a performer.",
+        "Enma: Or a critic."
+      ],
+      choices: [
+        { text: "Inspect the rose", nextScene: "clueRose4" },
+        { text: "Interview stagehands", nextScene: "interviewCrew4" }
+      ]
+    },
+    
+    clueRose4: {
+      dialogues: [
+        "Mr. Detective: This rose has tiny initials on the stem... ‘E.K.’",
+        "Enma: That’s... my dad’s initials.",
+        "Partner: Wait what?",
+        "Mr. Detective: This just got personal.",
+        "Enma: My dad... used to run this theatre before it closed down.",
+        "Partner: So either he's back, or someone’s using his legacy.",
+        "Mr. Detective: Let’s find out which."
+      ],
+      choices: [
+        { text: "Search theatre office", nextScene: "theatreOffice4" },
+        { text: "Confront Enma about her past", nextScene: "confrontEnma4" }
+      ]
+    },
+    
+    theatreOffice4: {
+      dialogues: [
+        "Mr. Detective: These papers... your dad was deep in debt.",
+        "Partner: Not 200 million deep, I hope.",
+        "Enma: Worse. He took a deal from the loan sharks...",
+        "Mr. Detective: So this is connected.",
+        "Enma: That means I was the bait.",
+        "Partner: That or the finale.",
+        "Mr. Detective: We need to end this. Now."
+      ],
+      choices: [
+        { text: "Set a trap for the killer", nextScene: "finalTrap4" }
+      ]
+    },
+    
+    finalTrap4: {
+      dialogues: [
+        "Partner: Everything’s set. Hidden cams. Blank guns. Dramatic lighting.",
+        "Enma: You even got fake blood?",
+        "Mr. Detective: Always. Never leave home without it.",
+        "Killer: *enters stage* You should’ve left the past alone!",
+        "Mr. Detective: Curtain call.",
+        "*Gunshots! Struggle!*",
+        "*Partner tackles the killer. Enma screams. Mr. Detective arrests him.*",
+        "Mr. Detective: Case closed.",
+        "Enma: And curtain down."
+      ],
+      choices: [
+        { text: "Roll credits", nextScene: "endScene4" }
+      ]
+    },
+    
+    endScene4: {
+      dialogues: [
+        "Partner: So... now what?",
+        "Enma: I’m going to rebuild the theatre.",
+        "Mr. Detective: With what money?",
+        "Enma: About that... I sold the watch.",
+        "Mr. Detective: Nooo!",
+        "Partner: For love and justice!",
+        "Mr. Detective: I better get free tickets for life.",
+        "Enma: You’ll get more than that... if you play your cards right.",
+        "Mr. Detective: ...This is going to be a weird romance, isn’t it?",
+        "Partner: I’m calling it — Season Two’s gonna be spicy."
+      ],
+      choices: [
+        { text: "Start Season 2", nextScene: "intro" }
+      ]
+    },
+
+
+
+
+      
           intro: {
      
       dialogues: [
@@ -992,7 +1211,7 @@ dialogueElem.addEventListener('click', () => {
 });
 
 // Start game
-showScene('intro');
+showScene('sceneStart');
 
   </script>
 </body>
