@@ -1246,11 +1246,440 @@ victoryExtended6: {
     "*Case closed.*"
   ],
   choices: [
-    { text: "End scene", nextScene: "sceneStart7" }
+    { text: "End scene", nextScene: "sceneStart8" }
+  ]
+},
+
+ sceneStart8: {
+  dialogues: [
+    "*A week has passed since the takedown of the Maestro. The city is quieter, but not still.*",
+    "Partner: Sooo… what now? We stopped an international assassin cult. That earns us vacation, right?",
+    "Mr. Detective: Don’t get too comfortable. HQ just buzzed. Another incident. Possibly connected.",
+    "Enma: (reading from her phone) ‘Explosion at Granview Docks. No casualties, but strange carvings found at the site.’",
+    "Partner: Here we go again...",
+    "*Suddenly, the precinct doors open. Saphira walks in, dressed sharp, face unreadable.*",
+    "Saphira: We need to talk. Now.",
+    "Enma: (dryly) Oh look, the runway’s back.",
+    "Mr. Detective: What happened?",
+    "Saphira: The carvings are in Aegean cipher — same as the Maestro’s last message. Someone’s continuing his work.",
+    "Partner: Copycats? Or disciples?",
+    "Saphira: Worse. Someone higher. Internal files were accessed. This could involve CIA moles.",
+    "Enma: You mean this goes deeper than we thought?",
+    "Saphira: Much deeper. I need your team again. Unofficially. No badges. No backup.",
+    "Mr. Detective: You in, Enma?",
+    "Enma: (grinning faintly) You had me at ‘deeper conspiracy’."
+  ],
+  choices: [
+    { text: "Accept mission with Saphira immediately", nextScene: "deepConspiracy8" },
+    { text: "Pull Enma aside to check her feelings", nextScene: "checkFeelings8" },
+    { text: "Investigate docks first independently", nextScene: "dockInvestigation8" },
+    { text: "Ask Partner to go ahead while you meet Saphira privately", nextScene: "saphiraPrivateTalk8" }
+  ]
+},
+
+checkFeelings8: {
+  dialogues: [
+    "*In a quiet corner of the precinct, Enma leans on a file cabinet, arms crossed.*",
+    "Mr. Detective: Hey. Before we jump into another mission, I need to know — are you okay?",
+    "Enma: (looks away) You mean after nearly dying… twice? Or working with Agent Fashion Show again?",
+    "Mr. Detective: You’ve been sharp, composed. But I see it — you’re holding back.",
+    "Enma: (sighs) I’m tired of being the second opinion. To her. To… everything.",
+    "Mr. Detective: You’re not. Not to me.",
+    "Enma: Prove it. Not with words, but with who you bring when it matters.",
+    "Mr. Detective: Then come with me. Always."
+  ],
+  choices: [
+    { text: "Hold her hand — silent promise", nextScene: "deepConspiracy8" },
+    { text: "Say nothing — just nod and walk", nextScene: "jealousDrift8" }
+  ]
+},
+
+jealousDrift8: {
+  dialogues: [
+    "*Enma watches as you walk off without a word. Her jaw tightens.*",
+    "Partner: (noticing) Uh oh. Ice storm incoming.",
+    "*Enma works the case… but with less warmth. More clinical.*",
+    "*Every moment with Saphira seems to dig at her, but she never says a word.*"
+  ],
+  choices: [
+    { text: "Try to fix it during mission", nextScene: "tensionDuringMission8" },
+    { text: "Ignore it and focus on case", nextScene: "coldEfficiency8" }
+  ]
+},
+
+saphiraPrivateTalk8: {
+  dialogues: [
+    "*On the rooftop, Saphira stands overlooking the skyline.*",
+    "Saphira: You know she hates me, right?",
+    "Mr. Detective: She doesn't hate you. She hates what you represent.",
+    "Saphira: Power, precision… or threat?",
+    "Mr. Detective: All of the above. You’re hard to read. But I know there’s more to you.",
+    "Saphira: (softly) There was once. Before the Agency burned it out of me.",
+    "*She turns toward you.*",
+    "Saphira: Be careful with Enma. She wants you to choose — but it’s not just between people. It’s between lives."
+  ],
+  choices: [
+    { text: "Assure her Enma is your choice", nextScene: "commitToEnma8" },
+    { text: "Say nothing and leave", nextScene: "keepItComplicated8" }
+  ]
+},
+
+deepConspiracy8: {
+  dialogues: [
+    "*At the Granview Docks, the ruins still smoke. Officers and CIA field agents buzz around.*",
+    "Partner: Found something. A carved violin. It’s split — broken strings. Just like the Maestro’s logo.",
+    "Saphira: (analyzing) And look — someone etched coordinates. Eastern Europe. We’re going abroad.",
+    "Enma: Great. Cold weather, and colder company.",
+    "*You notice Enma’s glances toward you and Saphira. The triangle tightens.*",
+    "*Saphira hands you a sealed file.*",
+    "Saphira: We leave at dawn. Plane’s private. Pack light — and choose wisely who sits next to you."
+  ],
+  choices: [
+    { text: "Sit next to Enma on the plane", nextScene: "europeFlightWithEnma8" },
+    { text: "Sit next to Saphira", nextScene: "europeFlightWithSaphira8" },
+    { text: "Sit with Partner for comic relief", nextScene: "europeFlightWithPartner8" }
+  ]
+},
+
+europeFlightWithEnma8: {
+  dialogues: [
+    "*Enma silently slides into the window seat. You sit beside her.*",
+    "Mr. Detective: Tired?",
+    "Enma: Only emotionally.",
+    "*You share headphones. Piano music. No words. Just warmth.*",
+    "*Later, as she rests her head on your shoulder…*",
+    "Enma: You chose the right seat. Finally.",
+    "*A small smile. Peace.*"
+  ],
+  choices: [
+    { text: "Hold her hand while she sleeps", nextScene: "arrivalInEurope8" }
+  ]
+},
+
+europeFlightWithSaphira8: {
+  dialogues: [
+    "*Saphira is reading case files. Her glasses slide slightly as she looks over.*",
+    "Saphira: Didn’t expect you to sit here.",
+    "Mr. Detective: You’re complicated. I respect that.",
+    "*She glances toward Enma across the aisle.*",
+    "Saphira: Be careful. You can’t walk two paths forever.",
+    "*The silence between you is professional — yet charged.*"
+  ],
+  choices: [
+    { text: "Redirect the conversation to the case", nextScene: "arrivalInEurope8" }
+  ]
+},
+
+arrivalInEurope8: {
+  dialogues: [
+    "*The plane lands in Bucharest. Snow falls. Eastern winds bite.*",
+    "*The target location is a derelict conservatory once used during Soviet times.*",
+    "Partner: Creepiest place we’ve been. And that’s saying something.",
+    "Enma: (analyzing carvings on wall) Musical notation again. But reversed. A mirror piece.",
+    "Saphira: The melody — it's incomplete. Like it’s missing a verse.",
+    "Mr. Detective: Maybe the missing piece is our next lead.",
+    "*Suddenly, a sniper shot rings out. Glass shatters.*",
+    "Partner: Down! They know we’re here!"
+  ],
+  choices: [
+    { text: "Pull Enma to cover", nextScene: "enmaSaved8" },
+    { text: "Jump in front of Saphira", nextScene: "saphiraSaved8" },
+    { text: "Push Partner out of the way", nextScene: "partnerSaved8" }
+  ]
+},
+    
+  enmaSaved8: {
+  dialogues: [
+    "*You yank Enma behind a stone pillar just as another sniper round cracks through the air.*",
+    "Enma: (breathing hard) I had that.",
+    "Mr. Detective: Not arguing. Just making sure you had it with a heartbeat.",
+    "Enma: (blushing slightly) You really don’t make this easy to stay mad at.",
+    "*Partner takes a shot from cover, and the sniper retreats.*",
+    "Saphira: (over comms) Flank the west side. He won’t get far.",
+    "Mr. Detective: We’ll need to track him. Enma, you good?",
+    "Enma: Better now. Let’s end this — together."
+  ],
+  choices: [
+    { text: "Track sniper trail immediately", nextScene: "sniperTrail9" },
+    { text: "Interrogate locals in nearby shops", nextScene: "locals9" }
+  ]
+},
+
+saphiraSaved8: {
+  dialogues: [
+    "*You dive forward, knocking Saphira out of the sniper’s line of fire. She hits the ground hard — safe but stunned.*",
+    "Saphira: …That was reckless.",
+    "Mr. Detective: That was necessary.",
+    "*She locks eyes with you. It lingers just a moment too long.*",
+    "Enma: (coldly from a distance) Nice reflexes. Very heroic.",
+    "Partner: Uh-oh. We’ve entered the danger triangle.",
+    "Saphira: (standing) He saved my life. Deal with it.",
+    "*Enma turns away, jaw clenched.*",
+    "*You’re left in the middle — literally and figuratively.*"
+  ],
+  choices: [
+    { text: "Follow Enma and talk", nextScene: "emotionalTalk9" },
+    { text: "Stay with Saphira to track the sniper", nextScene: "sniperTrail9" }
+  ]
+},
+
+partnerSaved8: {
+  dialogues: [
+    "*You lunge and shove Partner aside as the bullet rips past, grazing his shoulder instead of worse.*",
+    "Partner: Whoa! That’s the closest shave I’ve had since grandma tried to trim my eyebrows drunk!",
+    "Mr. Detective: You’re welcome. Can you still shoot?",
+    "Partner: I can shoot, joke, and bleed at the same time.",
+    "*Enma and Saphira regroup behind cover.*",
+    "Enma: That sniper’s not just a threat — he’s baiting us.",
+    "Saphira: Then let’s not bite — let’s flank."
+  ],
+  choices: [
+    { text: "Split up to flank", nextScene: "sniperTrail9" },
+    { text: "Stick together to move as unit", nextScene: "tightTeam9" }
+  ]
+},
+
+sniperTrail9: {
+  dialogues: [
+    "*The team follows footprints leading into the icy woods.*",
+    "Partner: Blood drops. He’s wounded. He won't get far.",
+    "Enma: Unless he’s trying to lead us somewhere specific.",
+    "Mr. Detective: Like a trap.",
+    "*They find a small shack. Inside: a radio, coded notes, and… a child’s music box.*",
+    "Saphira: This box... plays the same reversed melody we found earlier.",
+    "Enma: And there’s a page ripped from a violin sheet.",
+    "Mr. Detective: (analyzing) It’s a riddle. Every note matches a city letter... Budapest, Milan, Oslo — B, M, O… BOMO?",
+    "Partner: Sounds like the worst cereal ever.",
+    "Saphira: Or the name of a shell corporation tied to Maestro’s funding."
+  ],
+  choices: [
+    { text: "Follow BOMO lead to financial trail", nextScene: "financialClues9" },
+    { text: "Backtrack to Conservatory ruins for more", nextScene: "returnToConservatory9" }
+  ]
+},
+
+emotionalTalk9: {
+  dialogues: [
+    "*You find Enma alone by a broken statue behind the opera house.*",
+    "Mr. Detective: Enma…",
+    "Enma: Don’t. I get it. She’s brilliant. And tall. And saves the world before breakfast.",
+    "Mr. Detective: She’s not who I trust with my life. Or heart.",
+    "Enma: (sighs) This case is going to be hell, huh?",
+    "Mr. Detective: The hell’s easier with you in it.",
+    "*She reaches for your hand.*",
+    "Enma: Then let’s survive it. Together."
+  ],
+  choices: [
+    { text: "Kiss her", nextScene: "softRomanticBeat9" },
+    { text: "Just nod silently", nextScene: "returnToMission9" }
+  ]
+},
+
+financialClues9: {
+  dialogues: [
+    "*The team investigates BOMO Holdings in Vienna — a polished but clearly fake law office.*",
+    "Partner: This place smells like fake cologne and tax fraud.",
+    "Saphira: I hacked the entry — their records are ghosted, but someone’s laundering funds from U.S. black budgets.",
+    "Enma: Tied to music events. Every city matches a bombing from the last five years.",
+    "Mr. Detective: These weren’t random attacks. It’s an orchestral pattern — a death symphony, over years.",
+    "Partner: And the finale’s missing.",
+    "Saphira: Because it hasn’t played yet."
+  ],
+  choices: [
+    { text: "Find next potential city in pattern", nextScene: "futureTarget9" },
+    { text: "Return to agency and confront internal mole", nextScene: "confrontMole9" }
+  ]
+},
+
+returnToConservatory9: {
+  dialogues: [
+    "*You return to the decaying conservatory. This time, with ground radar.*",
+    "*Underneath, a hidden cellar. Inside — old film reels, musical manuscripts, and a black-and-white photo.*",
+    "Enma: (studying) This photo… he’s young here. That’s the Maestro?",
+    "Partner: Looks like he’s with a symphony group. Wait… one of them is the current Prime Minister.",
+    "Mr. Detective: That’s our link. The Maestro was a protege of the government — and now his revenge is political.",
+    "Saphira: We need to stop the next movement before it plays."
+  ],
+  choices: [
+    { text: "Present evidence to global task force", nextScene: "taskForce9" },
+    { text: "Go rogue and solve it off-grid", nextScene: "rogueMission9" }
+  ]
+},
+
+softRomanticBeat9: {
+  dialogues: [
+    "*You gently pull Enma into a kiss. Snow begins to fall around you.*",
+    "Enma: …Don’t make a habit of almost dying. I kind of need you around.",
+    "Mr. Detective: I’ll try not to.",
+    "*Behind them, Partner and Saphira quietly turn back around the corner.*",
+    "Partner: And that’s our cue to give them five minutes.",
+    "Saphira: Or ten. They’ve earned it.",
+    "*Cut to black.*"
+  ],
+  choices: [
+    { text: "Return to mission", nextScene: "futureTarget9" }
+  ]
+},
+
+
+   sceneSmartBattle10: {
+  dialogues: [
+    "*Inside a candlelit archive beneath the Vienna law office, an ancient safe sits against the wall — carved with strange musical notations.*",
+    "Enma: Another cipher. Who keeps locking criminal plans behind *sheet music*?",
+    "Saphira: The kind of mastermind who thinks in patterns, not passwords.",
+    "Partner: Great. Any chance the password is '1234'?",
+    "Mr. Detective: (examining) It’s more elegant than that. The top clef is G, but transposed down an octave... it's mimicking a Bach fugue, inverted.",
+    "Saphira: (grinning) Good catch. And that one — it's not a rest, it's a quarter-note triplet masking Morse.",
+    "Mr. Detective: A fugue written in Morse timing. That’s psychotic… and brilliant.",
+    "Saphira: And the last measure spells ‘SOLITUDE’ in frequency signature.",
+    "Partner: You guys are making me feel like I failed kindergarten.",
+    "Enma: (watching silently, arms crossed)",
+    "*Mr. Detective and Saphira move almost in sync, flipping sheet pages, decoding harmonies, and drawing out schematics.*",
+    "Mr. Detective: It’s not just a lock. It’s a *test* — a psychological fingerprint. The safe only opens if we mimic the Maestro’s thinking.",
+    "Saphira: Which means we have to anticipate not just what he wrote… but why.",
+    "*They both pause.*",
+    "Mr. Detective: He always hated silence after the crescendo. So he’d build a false end — to force noise again.",
+    "Saphira: So the code ends *after* the last note. A rest, then a sharp.",
+    "*They input the symbol. The safe clicks.*",
+    "*Inside: blackmail dossiers, financial accounts… and a video device with a blinking light.*",
+    "Enma: (dryly) Wow. That was… impressively nerdy.",
+    "Partner: Yeah, I blacked out somewhere around 'fugue'."
+  ],
+  choices: [
+    { text: "Crack open the dossier files", nextScene: "dossierReveal10" },
+    { text: "Play the video device", nextScene: "maestroMessage10" },
+    { text: "Check on Enma — she looked bothered", nextScene: "jealousSpike10" }
+  ]
+},
+
+
+  jealousSpike10: {
+  dialogues: [
+    "*You approach Enma, who’s leaning against a filing cabinet, arms tightly crossed.*",
+    "Mr. Detective: Something on your mind?",
+    "Enma: Oh, nothing. Just watching my boyfriend and a supermodel CIA agent finish each other's musical thoughts like it's a dinner date at Beethoven's house.",
+    "Mr. Detective: It wasn’t like that. It was a logic puzzle.",
+    "Enma: Right. Just a logic puzzle that requires shared IQ and near-telepathic nerd bonding.",
+    "Mr. Detective: (grinning) Are you... jealous?",
+    "Enma: (deadpan) I'm a professional. I don’t do jealousy. I do... battlefield emotional monitoring.",
+    "Partner: (from afar) Translation: she's jealous. Carry on.",
+    "Mr. Detective: Listen — no one solves puzzles like you. You think sideways. Saphira thinks straight lines.",
+    "Enma: And you?",
+    "Mr. Detective: I think I’m lucky to have you on my team. And in my life."
+  ],
+  choices: [
+    { text: "Hold her close", nextScene: "resolve10" },
+    { text: "Crack a joke to lighten the mood", nextScene: "joke10" }
+  ]
+},
+ 
+   
+    dossierReveal10: {
+  dialogues: [
+    "*The dossiers reveal names: global leaders, tech CEOs, arms dealers — all connected through musical events and illegal auctions.*",
+    "Saphira: This isn't just a murder plot. This is political orchestration.",
+    "Mr. Detective: He was building a network. An orchestra of chaos.",
+    "Partner: And we're the critics writing bad reviews.",
+    "Enma: Look here — Romania. Next auction. Three days from now. The sheet says ‘Final Movement.’",
+    "Saphira: He’s planning his last piece… and it’ll be explosive.",
+    "Mr. Detective: Then we crash the concert."
+  ],
+  choices: [
+    { text: "Plan an infiltration at the auction", nextScene: "auctionInfiltration10" },
+    { text: "Report this directly to international task force", nextScene: "taskForceReveal10" }
+  ]
+},
+
+
+  maestroMessage10: {
+  dialogues: [
+    "*The video plays — Maestro, masked, in a candlelit room.*",
+    "Maestro: ‘Bravo, if you’ve reached this… you’re almost worthy.’",
+    "Maestro: ‘Music reveals more than truth. It reveals control. And now the world will dance to my finale.’",
+    "Maestro: ‘Catch me if you can. But you’ll find the final note… inside yourself.’",
+    "*The video glitches. End.*",
+    "Saphira: He’s taunting us. Classic narcissist-megalomaniac hybrid.",
+    "Mr. Detective: No… it’s more than that. He’s leaving emotional fingerprints.",
+    "Enma: Then we follow them — to the crescendo."
+  ],
+  choices: [
+    { text: "Cross-reference emotional patterns in his messages", nextScene: "emotionalProfiling10" },
+    { text: "Track background audio in the video", nextScene: "audioTrace10" }
+  ]
+},
+
+
+sceneFinalCrescendo11: {
+  dialogues: [
+    "*Location: Budapest. A grand concert hall. Red velvet seats. A full orchestra tuning. Guests include diplomats, billionaires, and ghosts from every intelligence agency.*",
+    "Partner: (whispers) Remind me again why we're not just evacuating this place?",
+    "Mr. Detective: Because this isn’t just a concert. It's a coded assassination.",
+    "Saphira: Each movement played corresponds to a trigger phrase embedded in subliminal frequencies. Maestro designed a sonic kill switch — activated only when all notes are played in sync.",
+    "Enma: And guess who has to rewrite the ending.",
+    "Mr. Detective: (adjusts his cufflinks) Let’s give them a finale they won't forget."
+  ],
+  choices: [
+    { text: "Intercept the conductor", nextScene: "conductorInfiltration11" },
+    { text: "Override the frequency system", nextScene: "freqHack11" },
+    { text: "Sneak into the balcony to disable explosives", nextScene: "balconyMission11" }
+  ]
+},
+
+freqHack11: {
+  dialogues: [
+    "*Saphira and Mr. Detective slip into the control room, past armed guards using mirrored reflections and ambient noise as distraction.*",
+    "Saphira: Here. The audio signature controller. Maestro encoded this like a fugue... overlapping frequency shells. No brute force entry.",
+    "Mr. Detective: (typing rapidly) So we don’t break it. We compose with it. Rewrite the melody.",
+    "Saphira: You lead, I harmonize.",
+    "*They manipulate waveforms on four synchronized screens, converting lethal patterns into harmless dissonance.*",
+    "Mr. Detective: See this inversion? If we offset the fourth bar and replace the crescendo with a tritone —",
+    "Saphira: —we collapse the entire resonance algorithm. Risky. Beautiful.",
+    "*Alarms flicker, then go silent.*",
+    "System Voice: ‘Sequence neutralized. Safety protocol restored.’",
+    "Saphira: That… was almost too elegant.",
+    "Mr. Detective: (smirking) I have my moments.",
+    "*They share a look — one of mutual genius, and mutual respect.*"
+  ],
+  choices: [
+    { text: "Regroup with Enma and Partner", nextScene: "grandFinale11" }
+  ]
+},
+
+grandFinale11: {
+  dialogues: [
+    "*With the frequency system neutralized and explosives disabled, the real conductor takes the stage — unaware that the deadly concert has become a harmless performance.*",
+    "Enma: (smiling) All that risk… for a symphony.",
+    "Partner: Could’ve just streamed it on YouTube.",
+    "Saphira: Maestro will realize the plan failed. He’ll run.",
+    "Mr. Detective: No. He’ll watch. A composer never leaves before the final note.",
+    "*Mr. Detective walks calmly onto the stage. The music swells. He raises a hand — and points to the VIP box.*",
+    "*Maestro is seated there, disguised — eyes wide.*",
+    "*Security swarms. The audience never even knows the danger.*",
+    "Maestro: (as he's taken) You rewrote my legacy.",
+    "Mr. Detective: No. I just changed the key.",
+    "*The audience applauds — to a performance they thought was flawless. They never knew the world almost ended to a B-flat minor.*"
+  ],
+  choices: [
+    { text: "Final reflections", nextScene: "epilogue11" }
+  ]
+},
+
+epilogue11: {
+  dialogues: [
+    "*Weeks later. A quiet café. No ticking clocks. No gunfire.*",
+    "Partner: Sooo… now that we’re not saving the world, anyone want croissants?",
+    "Enma: I could get used to this. Peace. You not flirting with death. Or Saphira.",
+    "Saphira: (sipping tea) Please. If I wanted him, I'd have solved his emotional riddle faster than that audio cipher.",
+    "Mr. Detective: (chuckling) I wasn’t aware I was a riddle.",
+    "Saphira: You're the entire crossword. But I like puzzles I can walk away from.",
+    "*Saphira smiles faintly, tips her glass, and walks off — leaving the trio at the table.*",
+    "Partner: Did we just... outsmart an international supervillain using music theory?",
+    "Mr. Detective: And feelings.",
+    "Enma: (softly) Don’t forget feelings.",
+    "*She gently rests her head on his shoulder.*",
+    "*Fade to black.*"
   ]
 }
-
-
 
 
     }
