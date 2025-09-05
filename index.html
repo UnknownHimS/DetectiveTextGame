@@ -1080,9 +1080,176 @@ rivalPress1: {
       "Partner: Wait, is popcorn mandatory?"
     ],
     choices: [
-      { text: "Begin new mystery", nextScene: "newCase2" }
+      { text: "Begin new mystery", nextScene: "sceneStart6" }
     ]
   },
+
+
+
+      sceneStart6: {
+  dialogues: [
+    "*The precinct buzzes with the usual chaos — phones ringing, typing clacking, footsteps echoing.*",
+    "Partner: Hey boss, got a weird one. Direct request from CIA HQ. They want you and me on a joint international mission.",
+    "Mr. Detective: CIA, huh? That’s rare. Usually they keep their business to themselves.",
+    "Partner: Yeah, apparently this one’s serious. Something about a syndicate called Black Key. They’re a shadowy organization involved in international assassinations and high-profile crimes.",
+    "Enma: (looking up from her files, voice sharp) And what about me? Last I checked, I’m still on the team.",
+    "Mr. Detective: Enma, it’s not about ability. The CIA requested only two locals: me and Partner.",
+    "Enma: (cool but biting) Convenient exclusion, don’t you think?",
+    "Partner: Come on, Enma, it’s not personal. They want Saphira on the team — the CIA’s top operative. You’ve heard of her, right?",
+    "Enma: (eyes narrowing) Saphira… yeah, the ‘model agent’ who’s more style than substance. Let’s see how she holds up.",
+    "Mr. Detective: Let’s not jump to conclusions. The briefing’s in an hour. Let’s meet there.",
+    "*They walk toward the briefing room. The door swings open dramatically — in steps Saphira, tall, poised, sunglasses shielding sharp eyes, dressed like she just stepped off a runway.*",
+    "Saphira: Mr. Detective. Partner. Enma.",
+    "Enma: (forced smile) You must be Saphira. Welcome to our humble precinct.",
+    "Saphira: (smiles thinly) I’m here to get the job done. No distractions.",
+    "Mr. Detective: That’s what we’re here for. Let’s get started."
+  ],
+  choices: [
+    { text: "Listen to the CIA briefing", nextScene: "ciaBriefingExtended6" },
+    { text: "Pull Enma aside for a private talk", nextScene: "jealousTalkExtended6" }
+  ]
+},
+
+jealousTalkExtended6: {
+  dialogues: [
+    "*They step into a quiet hallway. Enma’s face hardens with barely contained frustration.*",
+    "Mr. Detective: You okay? You’ve been tense since Saphira walked in.",
+    "Enma: It’s more than that. I’m not just some backup — I’m your partner, your equal. And now there’s this… model agent stealing the spotlight.",
+    "Mr. Detective: I get it. She’s intimidating. But that doesn’t change how much I value you.",
+    "Enma: Easy for you to say when you don’t feel the sting. I want respect. Not just professionally, but… everything.",
+    "Mr. Detective: Enma, I’ve never doubted you. You’re my equal in every way.",
+    "Enma: (softens a bit) Then show it. I’m not here to compete, just to stand beside you.",
+    "Mr. Detective: You always have.",
+    "Enma: (smirks) Just so we’re clear — I’m not letting Saphira walk all over me.",
+    "Mr. Detective: (chuckles) Good. I’d hate for you to get bored.",
+    "*They share a brief, knowing look before heading back inside.*"
+  ],
+  choices: [
+    { text: "Return to briefing", nextScene: "ciaBriefingExtended6" }
+  ]
+},
+
+ciaBriefingExtended6: {
+  dialogues: [
+    "*Inside the secure CIA briefing room, holograms and digital maps fill the space. A senior CIA official addresses the group.*",
+    "CIA Official: The Black Key syndicate has escalated operations across multiple continents. Their signature? Leaving cryptic puzzles and riddles at every crime scene.",
+    "Partner: Puzzles? Like what — crossword clues or Sudoku?",
+    "CIA Official: More like elaborate cipher codes. Musical notation combined with ancient languages. Their last victim was an ambassador in Paris.",
+    "Saphira: Our intel shows their next target is the National Opera House tonight, during the gala.",
+    "Enma: (studying a digital sheet) These codes are brutal. They blend Morse code with musical staffs and Latin phrases. It’s a layered puzzle.",
+    "Mr. Detective: ‘Mortem venit cum silentio’ — Death comes with silence. Elegant and chilling.",
+    "Partner: This is more than just a hit — it’s a psychological game.",
+    "CIA Official: Exactly. If you solve the puzzle before time runs out, the target lives. Fail, and the world loses another leader.",
+    "Mr. Detective: What are our assets for tonight?",
+    "Saphira: Surveillance teams on all exits. Snipers in position. You three are strike force — direct engagement if needed.",
+    "Enma: (exchanging a glance with Mr. Detective) Strike force. Got it.",
+    "Partner: (grinning) Time to dance with danger.",
+    "Mr. Detective: Let’s gear up. This night’s going to be long."
+  ],
+  choices: [
+    { text: "Prepare for the mission", nextScene: "operaMissionExtended6" }
+  ]
+},
+
+operaMissionExtended6: {
+  dialogues: [
+    "*The grand opera house glows under the moonlight. Patrons arrive in elegant gowns and tuxedos, unaware of the deadly threat.*",
+    "Enma: (whispering) This place looks like a palace. The perfect stage for Black Key’s twisted finale.",
+    "Mr. Detective: Keep your eyes peeled. Every shadow could be hiding a trigger.",
+    "Partner: (checking equipment) The usual suspects don’t scare me — but tonight, it’s different.",
+    "Saphira (via comms): Surveillance reports multiple suspicious figures near backstage. Moving in.",
+    "*Inside, the orchestra tunes their instruments. Enma’s eyes flick to a man nervously clutching a program.*",
+    "Enma: That’s our guy.",
+    "Mr. Detective: Let’s move in silently.",
+    "*Suddenly, the lights flicker and die. Chaos erupts as masked gunmen flood the hall, weapons drawn.*",
+    "Partner: Ambush! Take cover!",
+    "*Gunfire and shouts fill the air. Enma rolls behind a pillar, pulling out a silenced pistol.*",
+    "Enma: (calm) Eyes on the target. Protect the civilians!",
+    "Mr. Detective: (returning fire) Enma, check stage left — I see a suspicious case.",
+    "*Amid the chaos, Enma spots a sleek, ticking device beneath the grand piano.*",
+    "Enma: Bomb. Disarm it now!",
+    "Partner: We’ve got your back.",
+    "*With trembling fingers, Enma works the intricate wires, the timer counting down. 10… 9…*",
+    "Mr. Detective: Almost there, Enma!",
+    "*She cuts the correct wire. The ticking stops. Silence returns for a moment.*",
+    "Enma: (exhales) That was too close.",
+    "Saphira (over comms): Reinforcements arriving. Secure the perimeter.",
+    "Partner: (grinning) Nice work, detective.",
+    "Mr. Detective: You’re more than just our bomb expert, you know.",
+    "Enma: (smirks) Glad you noticed.",
+    "*The gunmen retreat as the police storm in, leaving the team victorious but tense.*"
+  ],
+  choices: [
+    { text: "Interrogate captured thug", nextScene: "interrogateExtended6" }
+  ]
+},
+
+interrogateExtended6: {
+  dialogues: [
+    "*In a stark interrogation room, a bruised thug glares defiantly.*",
+    "Enma: Talk. Who’s your boss?",
+    "Thug: (sneers) You think I’m dumb? The Maestro runs this show.",
+    "Saphira: The Maestro? Sounds like a villain from a comic book.",
+    "Partner: (smirks) We’ll see if he’s more than a pretty name.",
+    "Mr. Detective: What’s his play? Why all these puzzles?",
+    "Thug: It’s all a game to him. Each puzzle leads to the next kill. He wants the world to know he’s untouchable.",
+    "Enma: We’ll see about that.",
+    "Saphira: We’re closing in. Tonight’s the finale.",
+    "Partner: Time to tune up and bring down the curtain.",
+    "Mr. Detective: Let’s plan our final move carefully."
+  ],
+  choices: [
+    { text: "Prepare for the final showdown", nextScene: "finalShowdownExtended6" }
+  ]
+},
+
+finalShowdownExtended6: {
+  dialogues: [
+    "*An old, abandoned theater stands shrouded in fog. The perfect stage for a deadly showdown.*",
+    "Mr. Detective: This is it. The Maestro’s hideout.",
+    "Enma: Every detail here screams obsession with theatrics.",
+    "Saphira: Stay sharp. This won’t be easy.",
+    "Partner: Ready for a fight.",
+    "*Inside, the vast stage is empty except for a grand piano under a spotlight.*",
+    "Suddenly, masked henchmen emerge, weapons drawn.",
+    "Enma: Ambush! Move!",
+    "*Bullets fly. Enma and Mr. Detective move in perfect sync — dodging, countering, disarming.*",
+    "Saphira: Enma, left flank!",
+    "Enma: Got it!",
+    "*Meanwhile, Mr. Detective faces the Maestro — calm, theatrical.*",
+    "Maestro: You cannot stop the music I conduct.",
+    "Mr. Detective: Maybe not. But I’m rewriting the score.",
+    "*Their fight is tense, a dance of wills and skill. Finally, Mr. Detective overpowers and cuffs Maestro.*",
+    "Partner: (panting) That was one hell of a performance.",
+    "Enma: (relieved) We did it.",
+    "Saphira: You’re stronger than I gave you credit for.",
+    "Mr. Detective: And you, Enma, proved you’re indispensable.",
+    "Enma: Took you long enough to say it.",
+    "*They share a quiet moment — tension easing into something softer.*"
+  ],
+  choices: [
+    { text: "Celebrate victory", nextScene: "victoryExtended6" }
+  ]
+},
+
+victoryExtended6: {
+  dialogues: [
+    "*Morning dawns. News of Black Key’s downfall spreads across the city.*",
+    "Saphira: Europe calls next. Another puzzle, another mission.",
+    "Partner: Can we get a vacation first? Maybe something with sand and sun?",
+    "Enma: (smiling at Mr. Detective) I’m just glad we stuck together through all this chaos.",
+    "Mr. Detective: Me too. Seems like the best team was right here all along.",
+    "Enma: No CIA star can replace that.",
+    "Partner: So, pizza party to celebrate?",
+    "Mr. Detective: Make that a double cheese.",
+    "*They laugh, the tension broken, the city alive beyond the windows.*",
+    "*Case closed.*"
+  ],
+  choices: [
+    { text: "End scene", nextScene: "sceneStart7" }
+  ]
+}
+
 
 
 
